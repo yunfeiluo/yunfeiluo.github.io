@@ -85,42 +85,6 @@ a{text-decoration: none;}
     padding:10px 0 0 7px;
 }
 
-.nav {
-    position: absolute;
-    background-color: #333333;
-    left: 0px;
-    right: 0px;
-    height:50px;
-    width: 100%;
-    margin:0 auto;
-    vertical-align: middle;
-}
-.nav ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    border: 1px solid #e7e7e7;
-    background-color: #f3f3f3;
-}
-.nav ul li{
-    float: left;
-}
-.nav ul li a{
-    display: block;
-    color: rgb(16, 17, 14);
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-.nav ul li a:hover:not(.active) {
-    background-color: #ddd;
-  }
-.nav ul li a.active {
-    color: white;
-    background-color: rgb(85, 136, 125);
-  }
-
 .footer{
     height:290px;
     background-color: #333333;
@@ -181,9 +145,10 @@ a{text-decoration: none;}
     padding:15px 0 65px 0;
 }
 .about img{
-    height: 600px;
-    width: 320px;
+    height: 450px;
+    width: 330px;
     padding:10px 0 70px 0;
+    border-radius: 50%;
 }
 .about p{
     color:rgb(1, 1, 1);
@@ -201,7 +166,7 @@ a{text-decoration: none;}
 /*slide*/
 #prev{
     position: absolute;
-    left: 30px;
+    left: 260px;
     top: 350px;
 }
 #next{
@@ -292,3 +257,37 @@ a{text-decoration: none;}
     border: 0;
     padding: 0 0 10px 0;
 }
+
+/*side bar*/
+/* Fixed sidenav, full height */
+.sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  /* Style the sidenav links and the dropdown button */
+  .sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+  }
+
+  /* On mouse-over */
+.sidenav a:hover{
+    color: #f1f1f1;
+  }

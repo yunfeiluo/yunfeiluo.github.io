@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!-- <html lang="zh-cn"> -->
+<head>
+<title>Yunfei Luo's Personal Website</title>
+<link rel="icon" type="image/x-icon" href="static/images/icon.png" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- general static files -->
+<link rel="stylesheet" href="static/css/basic.css">
+<script rel="stylesheet" src='static/js/front.js'></script>
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <ul>
+                <li style="cursor:pointer">
+                    <a href="index.html" class="active">Home</a></li>
+                <li style="cursor:pointer" onclick = "scroll_down('blogs')">
+                    <a>Articles</a></li>
+                <li style="cursor:pointer" onclick = "scroll_down('about')">
+                    <a>About</a></li>
+                <li style="cursor:pointer" onclick = "scroll_down('contact')">
+                    <a>Contact</a></li>
+                <!--<li style="cursor:pointer" onclick = "scroll_down('login')">
+                    <a>Login</a></li>-->
+            </ul>
+        </div>
+    </header>
+    
+    <section id = "headerBGI">
+        <!--slides buttons-->
+        <div id = "prev">
+            <button style="opacity: 0.4; cursor: pointer;" onmouseover = "opa_up('p')" onmouseout = "opa_down('p')" onclick = "prev()">
+                <img src = "static/images/prev.png">
+            </button>
+        </div>
+        <div id = "next">
+            <button style="opacity: 0.4; cursor: pointer;" onmouseover = "opa_up('n')" onmouseout = "opa_down('n')" onclick = "next()">
+                <img src = "static/images/next.png">
+            </button>
+        </div>
+        <!--back to top button-->
+        <div>
+            <button id = "scroll_top" onmouseover = "opa_up('s')" onmouseout = "opa_down('s')" onclick = "scroll_top()">
+                <img src="static/images/to-top.png">
+            </button>
+        </div>
+    </section>
+
+    <!-- section 0 -->
+    <section class = "blogs">
+        <div class = "container">
+            <h2>Articles</h2>
+            <div>
+                <a href="articles.html">
+                    <h1><u>View all the articles</u></h1></a>
+            </div>
+            <div>
+                <img src="static/images/other0.png">
+                <h3>Categories</h3>
+                <p>
+                    <br/>
+                    > <a href="documentations.html">
+                        <u>Software Engineering (Documentations)</u>
+                    </a><br/>
+                    <br/>
+                    > <a href="reports.html">
+                        <u>Open Source Projects (Reports)</u>
+                    </a><br/>
+                    <br/>
+                    > <a href="blogs.html">
+                        <u>Reflections of Papers & Learning Notes (Blogs)</u></a><br/>
+                    <br/><br/><br/><br/>
+                <!--<p>
+                    (Make comments after <a href="curr.html" target = "_blank"><u>login</u></a>)<br/>
+                </p>-->
+        </div>
+    </section>
+
+    <!-- section 1 -->
+    <section class = "about">
+        <div class = "container">
+            <h2>About</h2>
+            <div>
+            <img src="static/images/service-img1.png"> 
+            <p>
+                This website was mainly designed for representing the<br/>
+                Software Engineering and open source projects that I've<br/>
+                done or participated in. <br/><br/> 
+                
+                There are reports and documentaions of the projects.<br/>
+                Moreover, there are blogs, include the reflections <br/>
+                and discussions on the papers of the related fields <br/>
+                that I've read. The blogs also include some of my learning<br/>
+                notes on the significant concepts in the engineering<br/>
+                (application) field.<br/><br/>
+
+                Since the articles are stored structured in a retrospective<br/>
+                way, they are easy to be retrieved and be able to concisely<br/>
+                displayed to the readers. <br/><br/>
+
+                The website well-come all readers who are interested in the<br/>
+                topics of these articles. Enjoy the reading! <br/><br/>
+
+                <!--If you are interested in any of my posts, feel free to<br/>
+                make comments and have a disucssion.<br/><br/>-->
+            </p>  
+            </div>
+        </div>
+    </section>
+
+    <!-- The end: footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="top">
+                <figure>
+                    <h4>Contact Info.</h4>
+                    <ul>
+                        <li><p>E-mail: yunfeiluo@umass.edu</p></li>
+                        <li><p>Phone: 413. 404. 2124</p></li>
+                    </ul>
+                </figure>
+                <figure>
+                    <h4>About Me</h4>
+                    <ul>
+                        <li><a href="https://www.linkedin.com/in/yunfei-luo-616ab7171/" target="_blank"><u>My LinkedIn Profile</u></a></li>
+                        <li><a href="https://github.com/yunfeiluo" target="_blank"><u>My Github</u></a></li>
+                    </ul>
+                </figure>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    
+        <div class="container">
+            <div class="bottom">
+                Powered by Amazon Web Services (AWS).
+            </div>
+        </div>
+    </footer>
+    </body>
+    </html>

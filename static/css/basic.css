@@ -276,7 +276,7 @@ a{text-decoration: none;}
   .sidenav a {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 25px;
     color: #818181;
     display: block;
     border: none;
@@ -295,26 +295,25 @@ a{text-decoration: none;}
   /* article sidenav, full height */
 .asidenav {
     height: 100%;
-    width: 200px;
-    /* position: absolute; */
-    /* z-index: 1; */
+    width: 100%;
     top: 0;
     margin-left: auto;
     margin-right: auto;
     background-color: #111;
     overflow-x: hidden;
     padding-top: 20px;
-    border-radius: 10%;
+    border-radius: 8%;
   }
 
 .asidenav a {
-    padding: 6px 8px 6px 8px;
+    padding: 25px 8px 25px 8px;
     text-decoration: none;
-    font-size: 20px;
-    color: #818181;
+    font-size: 25px;
+    color: #fcde58;
     display: block;
     border: none;
     background: none;
+    background-color: rgb(105, 49, 49);
     width: 100%;
     text-align: center;
     cursor: pointer;
@@ -324,4 +323,10 @@ a{text-decoration: none;}
   /* On mouse-over */
 .asidenav a:hover{
     color: #f1f1f1;
+    background-color: rgb(180, 163, 163);
   }
+
+.asidenav h2{
+    color:#fff;
+    padding: 6px 8px 10px 8px;
+}

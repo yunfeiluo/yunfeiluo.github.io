@@ -291,3 +291,37 @@ a{text-decoration: none;}
 .sidenav a:hover{
     color: #f1f1f1;
   }
+
+  /* article sidenav, full height */
+.asidenav {
+    height: 100%;
+    width: 200px;
+    /* position: absolute; */
+    /* z-index: 1; */
+    top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+    border-radius: 10%;
+  }
+
+.asidenav a {
+    padding: 6px 8px 6px 8px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+  }
+
+  /* On mouse-over */
+.asidenav a:hover{
+    color: #f1f1f1;
+  }

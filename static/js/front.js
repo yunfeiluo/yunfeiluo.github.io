@@ -128,8 +128,8 @@ function opa_up(b0){
         button = document.getElementsByTagName("button");
         button[1].style.opacity = 1;
     }
-    else if (b0 == 's'){
-        button = document.getElementById("scroll_top");
+    else{
+        button = document.getElementById(b0);
         button.style.opacity = 1;
     }
 }
@@ -142,8 +142,7 @@ function opa_down(b1){
     else if (b1 == 'n'){
         button[1].style.opacity = 0.4;
     }
-    else if (b1 == 's'){
+    else{
         button.style.opacity = 0.4;
-            
     }
 }

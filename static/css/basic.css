@@ -186,76 +186,10 @@ a{text-decoration: none;}
 }
 
 /*the appearence of list*/
-#list .doc{
+#list a{
     width: 100%;
     background: url("../images/bg.jpg");
-    cursor: pointer;
-}
-
-#list .split{
-    background: url("../images/bg.png");
-    padding: 0 0 20px 0;
-    cursor: default;
-}
-
-#list #display_doc p{
-    padding: 0 0 0 0;
-}
-
-#list .back_button{
-    background: url("../images/bg.jpg");
-    cursor: pointer;
-    padding: 5px 50px 10px 50px;
-    float: left;
-}
-
-#list .back_button p{
-    padding: 0 0 0 0;
-    color:rgb(1, 1, 1);
-    font-size: 30px;
-}
-
-#list .share_button{
-    background: url("../images/bg.jpg");
-    cursor: pointer;
-    padding: 10px 50px 10px 50px;
-    float: right;
-}
-
-#list .share_button p{
-    padding: 0 0 0 0;
-    color:rgb(1, 1, 1);
-    font-size: 30px;
-}
-
-/*search bar appearance*/
-#list #search_bar{
-    text-align: center;
-    padding: 0 0 2px 0;
-}
-#list #search_text{
-    font-size: 25px;
-    width: 500px;
-    padding: 10px 5px 10px 5px;
-}
-
-#list #search_button{
-    background: url("../images/bg.jpg");
-    cursor: pointer;
-    font-size: 25px;
-    padding: 10px 50px 10px 50px;
-}
-
-#list #result_bar p{
-    padding: 0 0 0 0;
-}
-
-#list iframe{
-    background: url("../images/bg.png");
-    width: 100%;
-    height: 1200px;
-    border: 0;
-    padding: 0 0 10px 0;
+    /* cursor: pointer; */
 }
 
 /*side bar*/

@@ -226,7 +226,7 @@ a{text-decoration: none;}
     color: #f1f1f1;
   }
 
-  @media(max-width: 1221px) {
+  @media(max-width: 1500px) {
     .sidenav{
         display: none;
     }

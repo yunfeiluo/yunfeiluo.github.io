@@ -243,11 +243,13 @@ a{text-decoration: none;}
     padding: 25px 8px 25px 8px;
     text-decoration: none;
     font-size: 25px;
-    color: #fcde58;
+    /* color: #fcde58; */
+    color: #64e3e7;
     display: block;
     border: none;
     background: none;
-    background-color: rgb(105, 49, 49);
+    /* background-color: rgb(105, 49, 49); */
+    background-color: rgb(65, 74, 116);
     width: 100%;
     text-align: center;
     cursor: pointer;

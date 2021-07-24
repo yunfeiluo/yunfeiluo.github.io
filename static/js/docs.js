@@ -1,7 +1,8 @@
-async function fetch_projects(){
-    const result = await octokit.request('GET https://api.github.com/repos/{owner}/{repo}/git/trees/master', {
-        owner: 'yunfeiluo',
-        repo: 'yunfeiluo.github.io'
-      })
-    alert(result);
+function fetch_projects(){
+    fetch('https://api.github.com/repos/yunfeiluo/yunfeiluo.github.io/git/trees/master')
+    .then(res => res.json())
+    .then((out) => {
+        console.log('Output: ', out);
+    }).catch(err => console.error(err));
+    alert("complete");  
 }

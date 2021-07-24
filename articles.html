@@ -9,17 +9,17 @@
 </head>
 <body>
     <header>
-        <div class="nav">
-            <ul>
-                <li style="cursor:pointer">
-                    <a href="index.html">Home</a></li>
-                <li style="cursor:pointer" onclick = "scroll_down(' ')">
-                    <a class="active">Blogs</a></li>
-                <li style="cursor:pointer" onclick = "scroll_down('bcontact')">
-                    <a>Contact</a></li>
-                <!--<li style="cursor:pointer" onclick = "scroll_down('login')">
-                    <a>Login</a></li>-->
-            </ul>
+        <div class="sidenav">
+            <li style="cursor:pointer">
+                <a href="index.html" class="active">Home</a></li>
+            <!-- <li style="cursor:pointer">
+                <a href="publications.html" class="active">Publications</a></li> -->
+            <li style="cursor:pointer">
+                <a href="projects.html" class="active">Projects</a>
+            </li>
+            <li style="cursor:pointer">
+                <a href="blogs.html" class="active">Blogs</a>
+            </li>
         </div>
         <!--back to top button-->
         <div>
@@ -32,8 +32,29 @@
     <!-- section 0 -->
     <section class = "blogs">
         <div class = "container">
-            <h2>Projects</h2>
-            <div id="list"></div>
+            <h2>All Articles</h2>
+            <div class="asidenav">
+                <a href="https://github.com/yunfeiluo/yunfeiluo.github.io/blob/master/articles/projects/covid_19_cases_forecasting.pdf" target="_blank">
+                    Covid-19 Cases Forecasting, Machine Learning Project, 2020, Project Report
+                    </a>
+                <br/>
+                <a href="https://github.com/yunfeiluo/yunfeiluo.github.io/blob/master/articles/projects/studentlife_spring2020_report.pdf" target="_blank">
+                    Student Stress Detection, Machine Learning Research Project, 2020, Project Report
+                </a>
+                <br/>
+                <a href="https://github.com/yunfeiluo/yunfeiluo.github.io/blob/master/articles/blogs/Intro_to_fMRI.pdf" target="_blank">
+                    Introduction to fMRI, 2020, Learning Note
+                    </a>
+                <br/>
+                <a href="https://github.com/yunfeiluo/yunfeiluo.github.io/blob/master/articles/blogs/Cold_start_Playlist_Recommendation_with_Multitask_Learning.pdf" target="_blank">
+                    Cold-start Playlist Recommendation with Multitask Learning, 2020, Paper Note
+                </a>
+                <br/>
+            </div>
+            <br/><br/><br/><br/>
+            <br/><br/><br/><br/>
+            <br/><br/><br/><br/>
+            <br/><br/><br/><br/>
         </div>
     </section>
 
@@ -64,7 +85,7 @@
     
         <div class="container">
             <div class="bottom">
-                XXX Supported
+                Powered by GitHub.
             </div>
         </div>
     </footer>

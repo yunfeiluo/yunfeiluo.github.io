@@ -85,13 +85,13 @@ function scroll_down(str){
     //TODO
     var header_height = document.getElementsByTagName("header")[0].offsetHeight;
     var secs = document.getElementsByTagName("section");
-    if (str == 'blogs'){
+    if (str == 'about'){
         //TODO
         window.scrollTo(0, header_height
             + secs[0].offsetHeight);
         //alert(header_height);
     }
-    else if (str == 'about'){
+    else if (str == 'blogs'){
         //TODO
         window.scrollTo(0, header_height 
             + secs[0].offsetHeight

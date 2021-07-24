@@ -6,7 +6,6 @@
 <link rel="icon" type="image/x-icon" href="static/images/icon.png" />
 <link rel="stylesheet" href="static/css/basic.css">
 <script rel="stylesheet" src='static/js/front.js'></script>
-<script type="text/javascript" src='static/js/docs.js'></script>
 
 <!-- React -->
 <script src="build/react.development.js"></script>
@@ -17,9 +16,7 @@
     <header>
         <div class="sidenav">
             <li style="cursor:pointer">
-                <a href="index.html" class="active">Home</a></li>
-            <li style="cursor:pointer">
-                <button onclick="fetch_projects()">test</button>
+                <a href="index.html" class="active">Home</a>
             </li>
             <li style="cursor:pointer">
                 <a href="projects.html" class="active">Projects</a>
@@ -28,27 +25,15 @@
                 <a href="blogs.html" class="active">Blogs</a>
             </li>
         </div>
-        <!--back to top button-->
-        <div>
-            <button id = "scroll_top" onmouseover = "opa_up('s')" onmouseout = "opa_down('s')" onclick = "scroll_top()">
-                <img src="static/images/to-top.png">
-            </button>
-        </div>
     </header>
 
     <!-- section 0 -->
     <section class = "blogs">
         <div class = "container">
             <div id="root"></div>
-            <script type="text/babel">
-                ReactDOM.render(
-                    <h1>Hello, world!</h1>,
-                    document.getElementById('root')
-                );
-            </script>
             <h2>Projects</h2>
-            <div class="asidenav">
-                <a href="https://github.com/yunfeiluo/yunfeiluo.github.io/blob/master/articles/projects/cs690OP_report_student_survey_response_impute.pdf" target="_blank">
+            <div class="asidenav" id="list">
+                <!-- <a href="https://github.com/yunfeiluo/yunfeiluo.github.io/blob/master/articles/projects/cs690OP_report_student_survey_response_impute.pdf" target="_blank">
                     Matrix Completion through Matrix Factorization and Autoencoder, Machine Learning Research Project, 2021, Project Report
                 </a>
                 <br/>
@@ -59,8 +44,88 @@
                 <a href="https://github.com/yunfeiluo/yunfeiluo.github.io/blob/master/articles/projects/studentlife_spring2020_report.pdf" target="_blank">
                     Student Stress Detection, Machine Learning Research Project, 2020, Project Report
                 </a>
-                <br/>
+                <br/> -->
             </div>
+
+            <script type="text/babel">
+                class DocList extends React.Component {
+                    constructor(props){
+                        super(props);
+                        this.state = {list: []};
+                        this.fetch_projects();
+                    }
+
+                    fetch_projects(){
+                        let url = 'https://api.github.com/repos/yunfeiluo/yunfeiluo.github.io/git/trees/master';
+                        
+                        let fetch_list = [];
+                        // fetch 1st level
+                        fetch(url)
+                        .then(res => res.json())
+                        .then((out) => {
+                            let arr = out["tree"];
+                            for (var i = 0; i < arr.length; i++){
+                                if (arr[i]["path"] == "articles") {
+                                    url = arr[i]["url"];
+
+                                    // fetch 2nd level
+                                    fetch(url)
+                                    .then(res => res.json())
+                                    .then((out) => {
+                                        let arr = out["tree"];
+                                        for (var i = 0; i < arr.length; i++){
+                                            if (arr[i]["path"] == "projects") {
+                                                url = arr[i]["url"];
+                                                
+                                                // fetch 3rd level
+                                                fetch(url)
+                                                .then(res => res.json())
+                                                .then((out) => {
+                                                    let arr = out["tree"];
+                                                    for (var i = 0; i < arr.length; i++){
+                                                        fetch_list.push(arr[i]["path"]);
+                                                    }
+                                                    this.setState({list: fetch_list});
+                                                }).catch(err => console.error(err));
+
+                                                break;
+                                            }
+                                        }
+                                    }).catch(err => console.error(err));
+                                    break;
+                                }
+                            }
+                        }).catch(err => console.error(err));
+                    }
+
+                    display_docs(){
+                        const list = [];
+                        for (let item of this.state.list) {
+                            let curr_link = "https://github.com/yunfeiluo/yunfeiluo.github.io/blob/master/articles/projects/" + item;
+                            list.push(
+                                <div id = {item}>
+                                    <a href={curr_link} target="_blank">
+                                        {item}
+                                    </a>
+                                    <br/>
+                                </div>
+                            );
+                        }
+                        return (<div>{list}</div>);
+                    }
+
+                    // rendor funcion
+                    render () {
+                        // console.log(this.state.list);
+                        return this.display_docs();
+                    }
+                }
+                ReactDOM.render(
+                    <DocList></DocList>,
+                    document.getElementById("list")
+                );
+            </script>
+
             <br/><br/><br/><br/>
             <br/><br/><br/><br/>
         </div>

@@ -200,13 +200,6 @@ a{text-decoration: none;}
     opacity: 0.5;
 }
 
-/*the appearence of list*/
-#list a{
-    width: 100%;
-    background: url("../images/bg.jpg");
-    /* cursor: pointer; */
-}
-
 /*side bar*/
 /* Fixed sidenav, full height */
 .sidenav {

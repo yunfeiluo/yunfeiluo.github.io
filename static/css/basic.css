@@ -226,6 +226,12 @@ a{text-decoration: none;}
     color: #f1f1f1;
   }
 
+  @media(max-width: 320px) {
+    nav{
+        display: none;
+    }
+}
+
   /* article sidenav, full height */
 .asidenav {
     height: 100%;

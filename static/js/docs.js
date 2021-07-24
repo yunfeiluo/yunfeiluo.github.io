@@ -1,5 +1,7 @@
 function fetch_projects(){
-    var fs = require('fs');
-    var files = fs.readdirSync('/articles/projects/');
-    alert(files);
+    await octokit.request('GET https://api.github.com/repos/{owner}/{repo}/git/trees/master', {
+        owner: 'yunfeiluo',
+        repo: 'yunfeiluo.github.io'
+      })
+    // alert(files);
 }

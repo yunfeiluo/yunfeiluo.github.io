@@ -230,6 +230,10 @@ a{text-decoration: none;}
     .sidenav{
         display: none;
     }
+
+    #prev{
+        left: 30px;
+    }
 }
 
   /* article sidenav, full height */

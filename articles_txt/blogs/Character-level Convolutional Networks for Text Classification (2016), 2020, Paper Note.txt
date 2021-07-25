@@ -1,0 +1,57 @@
+Paper Review
+Author: Yunfei Luo
+May 12, 2020
+————————————————————————————————————————
+Character-level Convolutional Networks for Text Classification, by Zhang, Zhao, and LeCun
+Reference Paper URL: https://arxiv.org/abs/1509.01626
+Introduction/Main Goal
+The paper was published in 2016. The main goal of the paper is to exemplify the performance of
+ConvNets (Convolutional Networks) on text classification, based on Character-level. That is, to
+show the ability of ConvNets understand the text (for the task of classification) without knowing
+the knowledge from words and semantic structure of the language.
+What’s New/Improvement
+The authors are trying to improve upon the traditional text classification. As pointed by the authors, most of the machine learning classifiers for text classification nowadays are based on words.
+However, the authors offers a new approach to the task, i.e. treating the text as raw signal at character level, rather than word level. More specifically, instead of present word at each entry of the
+vector representation for the text, the signal present single character at each entry. Such approach
+is supposed to be more effective and perform better with large scale dataset.
+Observations
+This is also a paper on Neural Networks. The input is a text, and the output is a class that the
+text belongs to. More specifically, the input text will be numerically transformed into a matrix with
+dimension m × l, such that m defines the domain of unit character depends on the input language,
+and l denotes the total length of the sequence of characters that we care about in the text. In this
+paper, the authors believe that l = 1014 is an appropriate length, since it is enough for catching
+the key information in a text. The output class is simply in string format, for example, ”sport”,
+”finance”, ”entertainment”, etc. Although in the paper, the authors use supervised learning to train
+the Networks, all the class of the given texts are known, in practice, there do exist some unknown
+state. The hidden node would be the actual class that the texts belong to. The topology of the
+hidden nodes could be several independent trees, each with a broad class as root. For example, the
+class ”sport”, there would be some sub-class under this class, such as ”basketball”, ”swimming”,
+”mixed martial arts”, etc.
+Result
+The result that the authors obtained is shown as followed (page 6 in the paper):
+
+1
+
+The table of error shows that overall, the character-level ConvNets performed well. A more detailed comparison of the errors with other text classification model is offered at page 7:
+
+2
+
+The figure above shows that although the character-level ConvNets does not perform that well
+with the dataset ”AG News” compare with other models (except Bag-pf-means, because this model
+has more errors in all the dataset cases), the overall values of errors made by the character-level
+ConvNets is considerable. The most important point is that the character-level based ConvNets
+does not need dictionary for training, so that the entire training process is much more effective than
+the other models.
+Extension/Follow up
+Some deficiency would be obvious that the character-level ConvNets might not perform well with
+non-symbol-based language, such as Chinese. In this paper, the authors deal with this case (the
+dataset of Sogou News) by transform the Chinese characters into Pinyin. However, Pinyin and
+Chinese characters are not an one-to-one mapping, but rather an onto mapping, from characters to
+Pinyin. Placing different characters at the same place could mean extremely different things. So
+would it be better if we split each character into strokes (such as point and across, which is also a
+finite set), then use this sequence of strokes as raw input signals? Such follow-up questions could
+form the extension for the work presented in the paper.
+
+3
+
+

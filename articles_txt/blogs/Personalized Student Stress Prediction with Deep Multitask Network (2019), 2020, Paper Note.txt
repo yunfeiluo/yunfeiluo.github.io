@@ -1,0 +1,45 @@
+Reiew of the Paper
+Student: Yunfei Luo
+May 19, 2020
+————————————————————————————————————————
+Personalized Student Stress Prediction with Deep Multitask Network
+by Abhinav Shaw, Natcha Simsiri, Iman Deznabi, Madalina Fiterau, Tauhidur Rahman
+Reference Paper URL: https://arxiv.org/abs/1906.11356
+Introduction/Main Goal
+This paper was published in 2019. The main goal of this paper is to provide a solution for personalized modeling on the prediction of level of stress. The data was collected from a program in
+Dartmouth college, with volunteer students wearing sensors and completing surveys.
+What’s New/Improvement
+This paper was motivated by the previous work Towards deep learning models for psychological
+state prediction using smartphone data: Challenges and opportunities by Mikelsons, G., Smith, M.,
+Mehrotra, A., and Musolesi, M. ”However, it doesn’t address the challenges of inter-subject variability or heterogeneity in granularity.” (Section 1 of the paper). This paper approach the problem
+with inter-subject variability by modeling for each individual, and the problem with heterogeneity
+in granularity by implementing Auto-Encoder with LSTM.
+Observations
+The overall learning process is a supervised learning, with the data from sensors as input, and result
+from surveys done by students as known output. For having better performance, some intuitively
+related Covariates, including time till next due, the rating and duration of sleeping, were concatenate to the input sensor data.
+Furthermore, in order to deal with the long sequence and moise in the raw data from sensors,
+the raw data was first converted to bins with 1 minute long, then to histogram of a period of one
+hour. The hidden features was learned by the Auto-Encoder with LSTM. Then, these output features will be sent to the supervised learning model for further processing.
+The loss function was defined by the sum of Mean Absolute Error(MAE) of Classification Error(CE)
+from the supervised learning, and Reconstruction Error(RE) from the decoder of the Auto-Encoder,
+with hyperparameters α and β (Equation (1) in section 3.2.4):
+α RE + β CE
+
+The output (predicted labels) are below median stress, median stress, and above median stress
+1
+
+(Section 4 of the paper).
+Result
+The performances (F1-score) of using different models are shown below, include location-based MLP,
+LSTM, and CALM-Net. (Table 1 of the paper):
+
+Where CALM-Net have the best performance on this dataset.
+Extension/Follow up
+The possible extension would be try different models in Auto-Encoder, such as GRU-D, to see if
+there is improvements in the prediction result. Moreover, try clustering the students would be
+helpful, so that not much data needed from predicting the level of stress of new students.
+
+2
+
+

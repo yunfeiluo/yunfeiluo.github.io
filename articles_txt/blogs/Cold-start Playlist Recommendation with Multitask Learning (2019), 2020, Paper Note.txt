@@ -1,0 +1,49 @@
+Reiew of the Paper
+Student: Yunfei Luo
+May 19, 2020
+————————————————————————————————————————
+Cold-start Playlist Recommendation with Multitask Learning
+Dawei Chen, Cheng Soon Ong, Aditya Krishna Menon
+Reference Paper URL: https://arxiv.org/abs/1901.06125
+Introduction/Main Goal
+This paper was published in 2019. The main goal of this paper is to provide a recommended list of
+songs to the users, in the following three scenarios:
+a) Recommended list for existing users. (cold playlists)
+b) Recommended list for new users. (cold users)
+c) Recommended new released songs to users. (cold songs)
+The authors proposed a novel Multitask Learning method, and claim that such method could improve the performance of the recommendation.
+What’s New/Improvement
+The conventional method, matrix factorization, cannot dealing with the ”Cold Start” problem. And
+it is challenging for the standard supervised learning to train with users that have multiple playlists.
+The authors proposed a novel way of multitask learning method, which basically optimize a bipartite ranking. Moreover, since the previously formulated bipartite ranking is a convex problem
+with a great amount of constraints, the authors derived an equivalent unconstrained optimization
+for efficiency.
+Observations/Analysis
+The input data is the encoded feature from the dataset with:
+a) song metadata (loudness, mode, tempo)
+b) raw audio data, genre, and artistic information of the song
+c) the popularity of artist and the song
+The output is obviously the list of recommended songs for users with three settings as mentioned
+previously.
+The overall prediction task is basically finding the numerical optimal solution for the constructed
+optimization problem:
+minθ R(f, D) + Ω(θ)
+Where R is the risk function with affinity function f (affinity of song m in the playlist i for user u)
+and dataset D as parameters. Ω is the regularization term on the parameters α, β, µ in the affinity
+function f where f (m, u, i) = (αu + βi + µ)T xm , where αu and βi can be learned from the playlists
+1
+
+of each user, and µ learned from the entire set of playlist.
+Result
+The multitask learning method proposed by the authors is compared with other popular recommendation algorithm, include Matrix Factorization and k-Nearest-Neighbors. The result is shown below
+(page 6 of the paper):
+
+Where both AUC and hit rate of recommendation in the cold songs setting shows that the proposed method performed better.
+Extension/Follow up
+The possible extension is to apply such method in other fields. For example, in the task of Student
+Stress Prediction, it would be a great extended application that recommend actions to student (e.g.
+listen songs, watch videos, etc) based on the predicted results of the mental states of students.
+
+2
+
+

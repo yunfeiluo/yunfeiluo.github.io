@@ -56,7 +56,7 @@
                             <DocListSearch></DocListSearch>,
                             document.getElementById('list')
                         );
-                        //console.log(this.state.retrieved_list);
+                        // console.log(this.state.retrieved_list);
                     }).catch(err => {
                         console.log('err');
                     });
@@ -65,8 +65,8 @@
                 handle_search(){
                     this.search_attempted += 1;
                     let query_term = document.getElementById("search_text").value;
-                    // let url = "https://c4bd3emqvb.execute-api.us-east-2.amazonaws.com/prod/search_func?query=";
-                    let url = "http://127.0.0.1:5000/";
+                    let url = "https://7dh9o5ezi8.execute-api.us-east-2.amazonaws.com/default/query_time?query=";
+                    // let url = "http://127.0.0.1:5000/";
 
                     // send request to backend, get json file back
                     this.fetch_docs(url, query_term);

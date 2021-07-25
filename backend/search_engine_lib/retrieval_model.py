@@ -30,6 +30,8 @@ class BM25:
 
         # iterate over query terms
         for q in qf:
+            if self.inv_ind.get(q) == None:
+                continue
             coef = math.log((self.N - len(self.inv_ind[q]) + 0.5) / (len(self.inv_ind[q]) + 0.5))
 
             # iterate over posting list

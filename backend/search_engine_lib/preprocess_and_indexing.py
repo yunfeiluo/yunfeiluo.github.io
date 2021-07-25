@@ -68,14 +68,14 @@ class preprocess:
                 words.extend(self.removeD(word))
         return words
 
-    def stemming(self):
-        from nltk.stem.snowball import SnowballStemmer
-        stemmer = SnowballStemmer("english")
-        for i in self.text:
-            words = self.text[i]
-            for i in range(len(words)):
-                words[i] = stemmer.stem(words[i])
-        return self
+    # def stemming(self):
+    #     from nltk.stem.snowball import SnowballStemmer
+    #     stemmer = SnowballStemmer("english")
+    #     for i in self.text:
+    #         words = self.text[i]
+    #         for i in range(len(words)):
+    #             words[i] = stemmer.stem(words[i])
+    #     return self
     
     def stopword_removel(self):
         for i in self.text:
@@ -106,7 +106,7 @@ class preprocess:
         for i in self.text:
             words = self.tokenize(self.text[i])
             self.text[i] = words
-            self.stemming()
+            # self.stemming()
             self.stopword_removel()
         for d in self.doc_ind:
             self.doc_ind[d][1] = len(self.text[d])

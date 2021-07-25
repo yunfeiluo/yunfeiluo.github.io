@@ -1,0 +1,5 @@
+run
+python -m update_index
+to fresh the indexing files
+
+local_search_engine.py is for local testing (it's a Flask app)

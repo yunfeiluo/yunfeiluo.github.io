@@ -75,6 +75,7 @@
                 // load the list
                 generate_list(){
                     this.items = this.state.retrieved_list.docs_list;
+
                     // push to the list tag
                     const list = [];
 
@@ -91,25 +92,31 @@
                         </div>
                     );
                     if (this.search_attempted > 0){
+                        let num_docs = 0;
+                        if (this.items != null){
+                            num_docs = this.items.length
+                        }
                         list.push(
                             <div id="result_bar">
-                                <p>Search Results: About {this.items.length} results (attempted: {this.search_attempted})</p>
+                                <p>Search Results: About {num_docs} results (attempted: {this.search_attempted})</p>
                             </div>
                         );
                     }
 
                     // document list
-                    for (let item of this.items) {
-                        let curr_link = "https://github.com/yunfeiluo/yunfeiluo.github.io/blob/master/articles/" + item;
-                        let display_name = item.split('/').pop().split('.')[0]
-                        list.push(
-                            <div id = {item}>
-                                <a href={curr_link} target="_blank">
-                                    {display_name}
-                                </a>
-                                <br/>
-                            </div>
-                        );
+                    if (this.items != null){
+                        for (let item of this.items) {
+                            let curr_link = "https://github.com/yunfeiluo/yunfeiluo.github.io/blob/master/articles/" + item;
+                            let display_name = item.split('/').pop().split('.')[0]
+                            list.push(
+                                <div id = {item}>
+                                    <a href={curr_link} target="_blank">
+                                        {display_name}
+                                    </a>
+                                    <br/>
+                                </div>
+                            );
+                        }
                     }
                     return (<div>{list}</div>);
                 }

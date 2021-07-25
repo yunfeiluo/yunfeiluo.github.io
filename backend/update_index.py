@@ -4,9 +4,11 @@ import search_engine_lib.preprocess_and_indexing as pre_ind
 
 def dfs(root, text):
     if os.path.isfile(root):
-        real_ind = root[16:-4] + '.pdf'
+        real_ind = root[12:]
+        txt_path = "../articles_txt/{}.txt".format(real_ind.split('.')[0])
         text[real_ind] = list()
-        with open(root, 'r', encoding='utf-8') as f:
+        
+        with open(txt_path, 'r', encoding='utf-8') as f:
             line = f.readline()
             text[real_ind].append(line)
             while line:
@@ -19,7 +21,7 @@ def dfs(root, text):
 if __name__ == '__main__':
     # fetch the texts of all the document
     print("Fetching files...")
-    root = "../articles_txt"
+    root = "../articles"
     text = dict() # map: doc_path -> lines of text
     dfs(root, text)
 

@@ -53,7 +53,10 @@ a{text-decoration: none;}
 .container{
     height:auto;
     width:900px;
-    margin:0 auto;
+    /* margin:0 auto; */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 120px;
 }
 .container h2{
     font-weight:normal;
@@ -204,7 +207,7 @@ a{text-decoration: none;}
 /* Fixed sidenav, full height */
 .sidenav {
     height: 100%;
-    width: 180px;
+    width: 200px;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -233,16 +236,6 @@ a{text-decoration: none;}
 .sidenav a:hover{
     color: #f1f1f1;
   }
-
-  @media(max-width: 1100px) {
-    .sidenav{
-        display: none;
-    }
-
-    #prev{
-        left: 30px;
-    }
-}
 
   /* article sidenav, full height */
 .asidenav {
@@ -314,4 +307,18 @@ a{text-decoration: none;}
     height: 1200px;
     border: 0;
     padding: 0 0 10px 0;
+}
+
+@media(max-width: 1100px) {
+    .sidenav{
+        display: none;
+    }
+
+    #prev{
+        left: 30px;
+    }
+
+    .container{
+        padding-left: 0px;
+    }
 }

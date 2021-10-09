@@ -1,0 +1,464 @@
+       Multi-task Neural Networks for Hierarchical Text Classification
+
+
+          Yunfei Luo                          Yuyang Liu                        Rukai Cai
+        UMass Amherst                        UMass Amherst                     UMass Amherst
+    yunfeiluo@umass.edu                   yuyliu@umass.edu                 rukaicai@umass.edu
+
+
+
+
+                     Abstract                            and so on that are related to the users’ history are
+                                                         often prompted to them. Under this setting, hav-
+    Text classification plays a significant role         ing labels of classes for these media items can un-
+    in real-world applications, including but            doubtedly help with the search engine, since, by
+    not limited to data management, recom-               specifying a classification method on the whole
+    mendation systems, and search engines,               data set, the application will have a better under-
+    and serves as a commonplace in the field             standing on what to search for within which do-
+    of Natural Language Processing. In the               main. Meanwhile, the users will have an easier
+    real world, it is not always the case that an        way to reach the items they are targeting at in
+    application of text categorization is asked          oceans of information, further facilitating the pro-
+    to assign exactly one category to each               cedure for the application to learn the users’ pref-
+    piece of texts to be classified; instead, such       erences.
+    application is realized in a hierarchical               However, there is a myriad of new articles, mu-
+    manner, which is why this project focuses            sics, pictures, and videos uploaded to the internet
+    on hierarchical as opposed to single-label           every day, making it inefficient and almost impos-
+    text classification. To approach this task,          sible for people to label every single media item
+    we apply multi-task learning, which has              by hand. It is, therefore, crucial to have a model
+    been proved more flexible than the single-           that can perform automatic classification for the
+    task learning in the literature, and neural          purpose of convenience and effectiveness in data
+    networks, which have been shown to be                management.
+    powerful in various fields. We provide a                This project cuts into the field of automatic clas-
+    general platform for hierarchical text clas-         sification and follows previous works within this
+    sification with which we conducted ex-               field from the aspect of text classification, not only
+    periments on several deep neural network             because text classification is a commonplace in the
+    structures and achieved considerable per-            field of Natural Language Processing, but also be-
+    formance, along with a performance com-              cause classification problems of the other types of
+    parison between these networks on three              media items, especially those mentioned above,
+    data sets: Amazon product reviews, DB-               can mostly be somehow converted to a text clas-
+    Pedia, and Coronavirus tweets.                       sification problem.
+                                                            While talking about classification, what people
+1    Introduction
+                                                         usually have in mind is a one-to-one correspon-
+Within the billions of applications people nowa-         dence between a certain set of elements to be clas-
+days are using every day, mobile or tabletop, of-        sified and another certain set of elements to be
+fline or online, a place where classification evinces    used as labels. “Sex assigned at birth” is one of
+its necessity is in the recommendation systems, of       the most salient examples of this like, where new-
+which the versatility has been proved by its capa-       born babies are each assigned a label of male or
+bility of serving for a wide range of functionalities.   female, or maybe others depending on the country
+In applications designed for entertainment, for in-      and its gender policies. The key point here is that,
+stance, to align with the interests of the users, me-    in most cases, it is not allowed for someone to be
+dia items such as articles, musics, pictures, videos,    assigned both male and female, and that is the key
+feature of single-label classification. Traditional      ture, and neural networks, which have been shown
+classification methods such as those that involve        to be powerful in various fields, to perform hierar-
+Naive Bayes are designed typically to overcome           chical text classification.
+classification tasks that share the above features.
+   Notwithstanding, in the real world, it is not al-     2 Review of Literature
+ways the case that an application of text catego-        Cerri et al. (2014) demonstrated the applicability
+rization is asked to assign exactly one category or      of neural networks on hierarchical text classifica-
+level of category to each piece of texts to be clas-     tion and proposed a local-based approach, where
+sified. Instead, these applications are, more often      the prediction scores of the model for classify-
+than not, realized in a hierarchical manner. For ex-     ing current level of labels are used as the input to
+ample, a piece of news concerning the results of a       the model for classifying the next level of labels.
+boxing tournament may be classified so that it be-       They showed that this approach could achieve bet-
+longs to a class labeled, say, “Boxing,” which, ap-      ter performance than traditional methods such as
+parently, should not keep it from being classified       decision tree, but a drawback of this method is
+also as “Sports” news. That is why this project          that several neural networks are built separately,
+focuses on hierarchical as opposed to single-label       and the networks responsible for lower levels of
+text classification. Our goal is to build a model that   labels do not have the information of the original
+can have greater theoretical significance in the real    input. Furthermore, because the authors were fo-
+world.                                                   cusing more on revealing the improvement over
+   To approach a hierarchical text classification        the traditional methods by applying standard neu-
+task or maybe to approach any task within the field      ral networks, a large space of potential improve-
+of computer science in general, it is common that        ments are left for future researching works.
+people build and train only one model. It is reason-        Zhang et al. (2016) proposed a novel character-
+able in the sense that people are more interested        level as opposed to word-level One-Hot word em-
+in finding out the ”best” strategy with respect to       bedding method that achieved considerable per-
+solving a problem, but this single-task pattern has      formance on the classification task. A shining
+been proved not flexible enough when scaling on          point of this work worthy to highlight is that this
+the number of tasks by Caruana (1997), who pro-          method gives zero out-of-vocabulary words during
+posed a model where certain parts of it are trained      the testing. The disadvantages, though, are that
+for several tasks but are combined into a single         the big length of input sequences and the small
+block. Specifically, the world Caruana (1997) is         size of the vocabulary make the model cost more
+picturing is one where the models targeting at dif-      time and iterations to converge. Also, it is hard for
+ferent tasks, somehow, share some of their param-        the model to be benefited from transfer learning
+eters. Depending on this proposed structure, a fair      as models that feature other types of embeddings
+amount of research has been conducted. More              can be, such as the popular Word2Vec proposed
+pieces of empirical evidence, such as the branch-        by Mikolov et al. (2013) and GloVe proposed by
+ing works by Guo et al. (2020) and the personal-         Pennington et al. (2014).
+ized model for student stress prediction by Shaw            Conneau et al. (2017) proposed a deep convolu-
+et al. (2019), indicate that similar tasks that are      tional neural network structure for text classifica-
+trained simultaneously could, in fact, be benefited      tion. This model adopted the ideas from ResNet
+from each other. The improvement in the per-             He et al. (2015) and from VGG Simonyan and
+formance, the acceleration in the time for conver-       Zisserman (2015). A small size of kernels for
+gence, and the better applicability of their models      convolutional filters is used, and residual connec-
+are all significant indications. These pieces of ev-     tions are added to address the degradation prob-
+idence establish why an approach to hierarchical         lem. With a similar motivation, Kim et al. (2017)
+text classification featuring neural networks that       proposed a deep recurrent neural network struc-
+apply multi-task learning is not a redundant move        ture, where the residual connections are added be-
+and may lead us to broader and faster applications.      tween the stacked LSTM layers. These models
+   In a nutshell, in this project, we are applying       with a deep structure are empirically remarkable
+multi-task learning, which has been proved more          for feature extraction in NLP tasks.
+flexible than the single-task learning in the litera-       Lu et al. (2018) introduced a multi-task learning
+approach to the sentiment classification for texts of    our case, the loss function for each task is a soft-
+different levels of positiveness and negativeness.       max operation. Let Li and Ci be the loss function
+They showed that multi-task neural networks with         and the the number of classes, respectively, of a
+variational auto-encoder can effectively improve         task indexed i, and Wi be the weight matrix in the
+the classification accuracy by some other relative       output layer with a shape of 2048 × Ci . Imagine
+tasks. Although this work has only conducted             that we have a sample Xj with a ground-truth label
+experiments on the sentiment classification task,        yi, j , then the softmax loss is defined as:
+the authors introduced the multi-task structure as
+an approach worthy to try. Their work has also                                         exp(Wi, yi, j Xj )
+                                                          Li, j (X, Wi , Ci ) = − log PCi
+guided the future research in applying the multi-                                       k=0 exp(Wi,k Xj )
+task model to the scenarios with tens or even hun-
+dreds of categorical classes.                               Let t be the number of task. Then, our final loss
+   Peng et al. (2018) indicated the applicability of     for sample Xj is:
+convolutional neural network on hierarchical text
+                                                                            t
+classification. They introduced the hierarchical                            X
+                                                                 Lj (X) =         λi Li, j (X, Wi , Ci )
+dependencies between the labels to the classifier
+                                                                            i=0
+with recursive regularization, previously proposed
+by Gopal and Yang (2013). The only drawback of           Where λi is the weight assigned for the task in-
+this work, in our opinion, is that it is not clear how   dexed i. Under the scope of this project, we treat
+the proposed model can deal with cases where the         those coefficients as hyper-parameters. That is to
+hierarchical dependencies are not given, which are       say, we tend to assign larger values to tasks with
+more generally the case in the real world.               more classes.
+
+3   Method                                               3.1.1   Fully Connected Neural Network
+                                                         According to the structure of a standard shallow
+3.1 Multi-Task Neural Networks
+                                                         neural network, a fully connected layer in our case
+The fundamental structure of our proposed model          consists of a single hidden layer of size H. The 3D
+is guided by Lu et al. (2018) and an overview of         input X with shape N × L × D is first flattened to
+this model is shown in Figure 1. Let N be the            a 2D matrix with shape N × (L × D). Then, the
+number of training data, L be the number of tokens       output X 0 of the hidden layer is:
+in each sample, V be the vocabulary size, and D
+be the embedding dimension. Before we feed data                       X 0 = max(0, W X + b)
+into the model, each token should be transformed
+to its index in the vocabulary. An N × L matrix          Where W is an (L × D) × H 2D weight matrix
+is then fed to the first embedded layer, which will      that maps the input X to the hidden space, and b
+convert each input index to its corresponding vec-       is the bias term, or the intercept in terms of linear
+tor. As a result, an N × L × D matrix will be fed        regression. The max operation is the ReLU acti-
+to the next layers, which are our feature extractor.     vation function. X 0 will have a shape of N × H,
+See more discussions about the feature extractors        and it will be passed to the Multi-task classifier to
+to be applied and experimented on in the later sub-      yield final predictions.
+sections.
+   According to the multi-task learning approach,        3.1.2   Shallow Convolutional Neural Network
+our classifier, which is the processing layers of        1D convolutional neural network has been shown
+feature extractors, consists of a shared hidden lin-     to be useful in the task of extracting features from
+ear layer and a task-specific hidden layer for each      texts. In our scenario, the initial channel is the em-
+task. In our case, each task corresponds to a clas-      bedded dimension, and the kernel size corresponds
+sification task at a different level. We follow the      to the number of consecutive tokens. A stride of 1
+fully connected layer structure proposed by Zhang        is equivalent to extracting features from n-grams,
+et al. (2016) and Conneau et al. (2017), who ap-         where n is exactly the kernel size.
+plied 2048 units in each hidden layer.                      Our shallow convolutional neural network is
+   The loss function for the multi-task network is       shown in Figure 2. It consists of a convolution
+the weighted sum of loss from different tasks. In        layer with a kernel size of 3, a stride of 1, and 64
+                                       Figure 1: Model architecture.
+
+
+                                                        structure follows the design of residual networks
+                                                        by He et al. (2015). The residual connections are
+                                                        added to address the degradation problem. There
+                                                        are 17 convolutional layers followed by a pooling
+                                                        and fully connected layer in our feature extrac-
+                                                        tor, which is similar to ResNet18. The only dif-
+                                                        ferences between the structure of deep networks
+                                                        Conneau et al. (2017) and the structure of the orig-
+                                                        inal ResNet He et al. (2015) are that the down-
+                                                        sampling layers are replaced by pooling layers and
+                                                        that the average pooling layer is replaced by a k-
+                                                        max pooling layer.
+
+                                                        3.1.4   Long Short-Term Memory (LSTM)
+                                                        LSTM is a type of Recurrent Neural Network
+      Figure 2: Shallow convolution blocks.             (RNN). In addition to the plain RNN, LSTM will
+                                                        keep one more state other than the hidden state,
+                                                        called cell state. Cell state provides the ability to
+filters, followed by batch normalization, ReLU ac-      remember some information in the contexts that
+tivation function, and a max pooling layer of ker-      are far away from the current time step. Each
+nel size 3 and stride 2. In the scenario of text pro-   LSTM unit consist of input gate, output gate, and
+cessing, the pooling layer tends to be an operation     forget gate. These three gates control the flow of
+that extracts the most representative features from     information into and out of the states.
+the feature maps across the sequence.
+                                                        3.1.5   Deep Residual LSTM
+3.1.3 Deep Convolutional Neural Network                 We followed and implemented the deep neural
+We followed and implemented the deep neural net-        network structure proposed by Kim et al. (2017).
+work structure proposed by Conneau et al. (2017),       Each LSTM layer takes the output from previ-
+as shown in Figure 3, and the pattern of each con-      ous layers as input. The initial hidden and cell
+volutional block within the deep neural network         states are the last states from the previous layer,
+            Data sets    #S      #labels       #V        #OOV    #train    #val   #test   Seq Len
+            APR          40k     6, 50, 147    42k       21k     24k       8k     8k      96
+            DBPedia      338k    9, 70, 219    618k      196k    241k      36k    61k     160
+            CoVT         45k     3, 5          70k       31k     37k       4k     4k      32
+
+                                       Table 1: Statistics of data sets.
+
+except for the first layer. Our implementation of         4.1   Amazon Product Reviews (APR)
+this model consists of eight LSTM layers, where
+                                                          There are 50k Amazon product reviews (APR) in
+the residual connections are added every two lay-
+                                                          the original data set Kashnitsky (2020), belong to
+ers on the middle six layers to address the degra-
+                                                          one of the 6 L1 labels, 64 L2 labels, and 510 L3
+dation problem.
+                                                          labels. The higher the level, the more specific the
+3.1.6 Batch Normalization                                 labels. We first drop the sample with number of
+For the purpose of efficient convergence, we ap-          characters less than 32. Then we concatenate the 3
+ply batch normalization Ioffe and Szegedy (2015)          levels of labels together and drop the samples that
+to every layer except for the embedding layer and         belong to those combined labels with number of
+for the final output layer. Batch normalization ac-       samples less than 64. After this washing process,
+celerates the convergence by removing the internal        we have around 40k number of samples left, along
+shift so that the model will tempt to adjust the pa-      with 6 L1 labels, 50 L2 labels, and 147 L3 labels.
+rameters to fit batches with different distribution.      More detail has been shown in Table 1.
+                                                             Because the product reviews are usually infor-
+3.2 Word2Vec Embedding                                    mal sentences, the tokenizer we choose for this
+Word2Vec Mikolov et al. (2013) is a predictive            data set is the TweetTokenizer from NLTK Bird
+method that maps a token to a vector space.               and Loper (2004).
+The method we use for pre-training is skip-gram,
+                                                          4.2   DBPedia
+where the goal of the fit model is to predict the
+words around a given word. All our experiments            The original data set Ofer (2019) has 338k sam-
+concerning Word2Vec embeddings use 32 dimen-              ples overall, belonging to one of the 9 L1 labels,
+sions.                                                    70 L2 labels, and 219 L3 labels. Likewise, the
+                                                          higher the level, the more specific the labels. No
+4   Data sets                                             data were dropped as this is a benchmark data set,
+                                                          and it represents a nice distribution.
+As stated in the introduction, the data sets we are
+conducting experiments on are Amazon product                The tokenizer chosen for this data set is the
+reviews, DBPedia, and Coronavirus tweets.                 NLTK word tokenizer, preceded by punctuation
+                                                          removal and followed by stop words removal.
+   The original samples in the data sets are not ac-
+ceptably clean. We droped samples having too few
+                                                          4.3   Coronavirus Tweets (CoVT)
+characters. We also droped samples that belong
+to labels having too few samples. As for deal-            The data set of Miglani (2020) originally has a
+ing with words in the texts, our pre-processing           training set of 41k samples set and a testing sam-
+pipeline consists of tokenization and stop-words          ples set of 4k samples. We split 4k samples from
+removal. For splitting the data that are not already      the original training sample set as validation sam-
+split, we use 60% of the entire data set for training,    ple set.
+20% for validation, and 20% for testing.                     Unlike the other two data sets, this data set is
+   Table 1 represents the number of samples, num-         annotated with sentimental labels with only two
+ber of labels of each level, vocabulary size, num-        hierarchical layers having 3 and 5 labels each. The
+ber of Out-of-Vocabulary words, and the number            L1 labels are “positive,” “neutral,” and “negative,”
+of samples for training, validation, and testing.         and the L2 ones are “extreme positive,” “positive,”
+The i-th number in the #Labels column represents          “neutral,” “negative,” and “extreme negative.” The
+the number of labels at level i. “Seq Len” denotes        average length for each sample is around 15. So,
+the fixed length of each sample.                          we picked 16 and 32 as our sequence lengths, and
+                         APR, 147 classes       DBPedia, 219 classes    CoVT, 5 classes
+              Models     Single Multi-task      Single Multi-task       Single Multi-task
+              FC-Net     17.03 19.16            83.17 85.11             35.91 38.70
+              ConvNet    25.72 26.77            90.57 90.68             37.78 41.91
+              LSTM       32.60 41.53            91.28 92.26             46.36 53.55
+
+Table 2: Testing accuracies in percentage of all the models at finest level of labels with and without
+multi-task learning. “Single” denotes the vanilla model with single output head; “multi-task” denotes the
+multi-task model that we proposed with multi-head output heads; “FC-Net” denotes the fully connected
+neural network; “ConvNet” denotes the convolutional neural network. The number of classes is shown
+at the top of the table.
+
+                              APR                       DBPedia                    CoVT
+         Models               L1.      L2.     L3.      L1.   L2.        L3.       L1.     L2.
+         Shallow FC-Net       59.02    31.07   19.16    96.71 91.13      85.11     59.03   38.70
+         Shallow ConvNet      70.52    43.04   26.77    97.52 93.86      90.68     61.29   38.52
+         Deep ConvNet         75.53    49.46   34.13    97.39 94.28      91.07     63.21   41.91
+         Shallow LSTM         75.79    51.95   41.53    97.67 94.92      92.26     70.35   53.55
+         Deep LSTM            77.96    53.56   41.12    96.72 93.71      90.39     59.89   39.57
+
+Table 3: Testing performance of all the models at each level. “Li.” denotes the testing accuracy in
+percentage of the i-th level label. Naming of the models are same with that in Table 2. The number of
+classes at different levels of these data sets have been shown in Table 1.
+
+the model performs better with 32, which becomes       as our evaluation metric.
+our final decision.
+  As a collection of tweets, this data set consists    6 Analysis and Discussion
+mostly of informal writings. We chose NLTK reg-        Our experiments have shown that using both the
+ular expression tokenizer and NLTK stopwords re-       convolutional neural network and LSTM for fea-
+moval with no samples being dropped.                   ture extraction can perform better in most cases
+                                                       than using the baseline model, namely the fully
+5   Results
+                                                       connected neural network. From Figure 4, we
+In Table 2 are the results from our preliminary ex-    can observe that LSTM networks converge with
+periments. It provides the comparison of the per-      lowest error rate, while stacked LSTM networks
+formance achieved at a certain level of the hier-      did not seem to have brought much improve-
+archical labels by using and not using multi-task      ment. On DBpedia, given sufficient training sam-
+structure with different neural networks as feature    ples, both shallow and deep convolutional neu-
+extractor.                                             ral networks converge with a very close error
+   As the preliminary results verify the effective-    rate. Contrastingly, on the Amazon product views,
+ness of the multi-task model, we conduct further       where some labels have a poor number of samples,
+experiments for exploring the possible improve-        whereas deep convolutional neural networks can
+ments. In Table 3 are the complete experiment re-      still achieve considerable performance, the shal-
+sults. The best result in each column is boldfaced.    low ones get stuck at some point and converge
+   For all the training, we use mini-batch SGD op-     with a relatively high error rate. Fully connected
+timizer with a momentum of 0.9. We use a batch         neural networks, as the baseline model, converge
+size of 64 for Amazon product reviews and Coro-        with poor performance on both data sets and are
+navirus tweets, and of 128 for DBPedia. The ini-       in no competetion with the other neural networks
+tial learning rates are fixed to 1e-2. The models      mentioned thus far.
+converge in around 30 epochs on Amazon product            Now, let us look into feature extraction. When
+reviews and in around 15 epochs on DBPedia and         the model’s feature extractor is set to be a fully
+Coronavirus tweets. We use the overall accuracy        connected network, the features it extracts will be
+                                                       fairly flexibly. By extracting local features, wher-
+                                                       ever the sets of tokens that are most informative
+                                                       in the sentence are, they can still be caught by the
+                                                       convolutional filters. Fully connected layers, on
+                                                       the other hand, will treat all the tokens equally and
+                                                       reduce the generalization of the model for the va-
+                                                       riety of sentences.
+                                                          Let us be frank: Texts are complex. Although
+                                                       convolutional neural networks seem effective for
+                                                       extracting useful features from texts, it is undeni-
+                                                       able that words in the sentence can have strong
+                                                       dependencies with words that are far from them.
+                                                       Convolutional neural networks cannot extract in-
+                                                       formation resembling this kind of dependencies,
+                                                       but long short-term memory network (LSTM) can.
+                                                       LSTM, as one of the most popular recurrent neural
+                                                       networks, treats texts as a series of data and aims
+                                                       to solve the problem for missing information of
+                                                       long dependencies belonging. The recurrent layer
+                                                       will process the tokens in a sentence one by one
+                                                       and the hidden states of each step depends on its
+                                                       previous states. Such a structure enables the model
+                                                       to extract the features of the overall pattern of the
+                                                       sentences. It should be recalled at this point that,
+                                                       since the tokens in each sentence is supposedly co-
+                                                       herent, local features cannot represent the entire
+                                                       pattern, and that although fully connected neural
+                                                       networks do consider the sentence as a whole, it
+                                                       cannot extract information of the flows within to-
+                                                       kens. This could possibly explain why LSTM in-
+                                                       dicates its robustness over other models in our ex-
+                                                       periments.
+                                                          Then, let us consider the number of parameters
+                                                       of the models. Table 4 shows the number of pa-
+  Figure 3: VDCNN by Conneau et al. (2017).                       Models               #params
+                                                                  Shallow FC-Net       ∼43M
+                                                                  Shallow ConvNet      ∼24M
+those that are global, meaning that all the tokens                Deep ConvNet         ∼25M
+in a sentence to be classified will be evaluated si-              Shallow LSTM         ∼0.3M
+multaneously before being fed to another layer. In                Deep LSTM            ∼0.6M
+contrast, convolutional neural networks extract lo-
+cal features and evaluate the tokens in a similar               Table 4: Number of parameters.
+manner to that of n-grams. Although there are no
+solid observations in the literature about whether     rameters for each model. The fully connected neu-
+global or local features are more efficient, in our    ral network, as the baseline model, has the most
+case, the empirical results show that local features   number of parameters, whereas LSTM has a sig-
+are better. The reason for this could be that the      nificantly smaller number of parameters.
+tokens have relatively stronger relations with sur-       As a summarization, a key question concerning
+rounded tokens than with words that are far away       all the models on which we have conducted exper-
+from them. What is more, languages in general          iments can be raised: What will be the trade-off if
+can be fickle, and some of them can arrange words      these models are being deployed?
+                         Figure 4: Validation error rate versus training epochs.
+
+
+   LSTM, as a recurrent neural network, is the        7 Conclusion and Future Work
+most robust and stable model among all the mod-
+                                                      This article provides an empirical overview of ap-
+els we experimented. On the Amazon product re-
+                                                      plying multi-task neural network to the hierarchi-
+views data set, some of the labels have very poor
+                                                      cal text classification task. The empirical results
+number of samples. The least one only got 64 sam-
+                                                      indicate the robustness and effectiveness of this
+ples for training. In such a scenario, the LSTM
+                                                      model. As we have presented, the model that
+model still achieved a considerable performance.
+                                                      could master hierarchical text classification can
+   Convolutional Neural Network could be ben-         serve as a great feature to be added to the inter-
+efited directly from having deeper layers. In addi-   net community. The society would be implicitly
+tion, as shown in the results from the DBPedia data   benefited from various aspects, including but not
+set, when a sufficient amount of training data is     limited to convenience and effectiveness.
+given, the deep convolutional model could achieve        As for future work, we want to explore more
+accuracy very close to the best LSTM model we         structures for feature extraction such as attention
+have. In addition, with convolutional layers, the     mechanism and transformers. In addition to ex-
+model has more space for potential improvements,      ploring the improvements in model performance,
+such as stacking more layers and enlarging the        we also want to test the applicability of the multi-
+data set by data augmentation. Another obvious        task model on various tasks. We hope to see more
+disadvantage of recurrent layers is that it cannot    possible benefits made by these methods.
+be benefited much from parallel computing as can
+the convolutional layers. Although LSTM seems
+to lose the competition, it has several significant
+                                                      References
+strengths.                                            Steven Bird and Edward Loper. 2004. NLTK: The nat-
+                                                         ural language toolkit. In Proceedings of the ACL
+   In closing this section, according to the em-         Interactive Poster and Demonstration Sessions. As-
+                                                         sociation for Computational Linguistics, Barcelona,
+pirical results, recurrent neural networks such as       Spain, pages 214–217.
+LSTM are so stable that they can achieve consid-
+erable results even under a very poor condition.      Rich Caruana. 1997. Multitask learning. Machine
+As a light model, LSTM is efficient to train, and       Learning 28(1):47–75.
+easy to deploy. To the contrary, convolutional neu-   Ricardo Cerri, Rodrigo Barros, and André de Carvalho.
+ral networks such as ResNet require a lot more re-      2014. Hierarchical multi-label classification using
+sources for training. But in a long-term view, the      local neural networks. Journal of Computer and
+convolutional model is more appropriate in terms        System Sciences 80(1):39–56.
+of sustainable development and has a lot of poten-    Alexis Conneau, Holger Schwenk, Loı̈c Barrault, and
+tial improvements.                                      Yann LeCun. 2017. Very deep convolutional net-
+  works for text classification. arXiv:1606.01781v2         Jeffrey Pennington, Richard Socher, and Christopher
+  [cs.CL].                                                     Manning. 2014. GloVe: Global vectors for word
+                                                               representation. In Proceedings of the 2014 Con-
+Siddharth Gopal and Yiming Yang. 2013. Recursive               ference on Empirical Methods in Natural Language
+   regularization for large-scale classification with hi-      Processing (EMNLP). Association for Computa-
+   erarchical and graphical dependencies. In Proceed-          tional Lingusitics, Doha, Qatar, pages 1532–1543.
+   ings of the 19th ACM SIGKDD International Con-
+   ference on Knowledge Discovery and Data Mining.          Abhinav Shaw, Natcha Simsiri, Iman Deznaby,
+   Association for Computing Machinery, New York,             Madalina Fiterau, and Tauhidur Rahaman. 2019.
+   NY, USA, pages 257–265.                                    Personalized student stress prediction with deep
+                                                              multitask network. arXiv:1906.11356v1 [cs.LG].
+Pengsheng Guo, Chen-Yu Lee, and Daniel Ulbricht.
+                                                            Karen Simonyan and Andrew Zisserman. 2015. Very
+  2020. Learning to branch for multi-task learning.
+                                                              deep convolutional networks for large-scale image
+  arXiv:2006.01895v2 [cs.LG].
+                                                              recognition. arXiv:1409.1556v6 [cs.CV].
+Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian           Xiang Zhang, Junbo Zhao, and Yann LeCun. 2016.
+  Sun. 2015. Deep residual learning for image recog-          Character-level convolutional networks for text clas-
+  nition. arXiv:1512.03385v1 [cs.CV].                         sification. arXiv:1509.01626v3 [cs.LG].
+
+Sergey Ioffe and Christian Szegedy. 2015. Batch
+  normalization:    Accelerating deep network
+  training by reducing internal covariate shift.
+  arXiv:1502.03167v3 [cs.LG].
+
+Yury Kashnitsky. 2020. Hierarchical text classifica-
+  tion, version 1. Retrieved November 26, 2020 from
+  https://www.kaggle.com/kashnitsky/hierarchical-
+  text-classification/version/1.
+
+Jaeyoung Kim, Mostafa El-Khamy, and Jungwon Lee.
+   2017. Residual LSTM: Design of a deep re-
+   current architecture for distant speech recognition.
+   arXiv:1701.03360v3 [cs.LG].
+
+Guangquan Lu, Xishun Zhao, Jian Yin, Weiwei Yang,
+  and Bo Li. 2018. Multi-task learning using varia-
+  tional auto-encoder for sentiment classification. Pat-
+  tern Recognition Letters 132(1):115–122.
+
+Aman Miglani. 2020.              Coronavirus tweets
+ NLP — text classification,             version 1.
+ Retrieved       November       26,    2020    from
+ https://www.kaggle.com/datatattle/covid-19-nlp-
+ text-classification/version/1.
+
+Tomas Mikolov, Kai Chen, Gregory Corrado, and Jef-
+  frey Dean. 2013. Efficient estimation of word rep-
+  resentations in vector space. arXiv:1301.3781v3
+  [cs.CL].
+
+Daniel Ofer. 2019.            DBPedia,    version
+  2.       Retrieved November 26, 2020 from
+  https://www.kaggle.com/danofer/dbpedia-
+  classes/version/2.
+
+Hao Peng, Jianxin Li, Yu He, Yaopeng Liu, Mengjiao
+  Bao, Lihong Wang, Yangqiu Song, and Qiang Yang.
+  2018. Large-scale hierarchical text classification
+  with recursively regularized deep graph-CNN. In
+  Proceedings of the 2018 World Wide Web (WWW)
+  Conference. International World Wide Web Con-
+  ferences Steering Committee, Geneva, Switzerland,
+  pages 1063–1072.
+

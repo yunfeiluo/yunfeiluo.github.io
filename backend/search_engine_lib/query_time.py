@@ -50,4 +50,4 @@ def run(queries):
     return docs_list
 
 if __name__ == "__main__":
-    run("machine learning")
+    run("natural language process")

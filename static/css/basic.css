@@ -52,7 +52,7 @@ a{text-decoration: none;}
 
 .container{
     height:auto;
-    width:900px;
+    width:1000px;
     /* margin:0 auto; */
     margin-left: auto;
     margin-right: auto;
@@ -179,6 +179,43 @@ a{text-decoration: none;}
 }
 .about h2{
     color:rgb(1, 1, 1);
+}
+
+.profile{    
+    overflow:hidden;
+    width: 100%;
+    /*background: url("../images/c1.png");*/
+    background: #ffffff;
+    background-position: center 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;  /* for Webkit kernal browser such as Chrome和Safari */
+    -o-background-size: cover;  /* for Opera */     
+    padding:15px 0 65px 0;
+}
+.profile img{
+    float: center;
+    height: 450px;
+    width: 270px;
+    padding:0 0 0 0;
+    /* border-radius: 50%; */
+    display: block; 
+    margin: auto;
+}
+
+.profile img:hover{
+    height:500px;
+    width: 300px;
+}
+
+.about h2{
+    color:rgb(1, 1, 1);
+}
+
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
 }
 
 /*slide*/

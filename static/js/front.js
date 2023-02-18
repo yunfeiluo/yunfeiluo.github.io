@@ -91,17 +91,24 @@ function scroll_down(str){
             + secs[0].offsetHeight);
         //alert(header_height);
     }
-    else if (str == 'blogs'){
+    else if (str == 'profile'){
         //TODO
         window.scrollTo(0, header_height 
             + secs[0].offsetHeight
             + secs[1].offsetHeight);
     }
-    else if (str == 'contact'){
+    else if (str == 'blogs'){
         window.scrollTo(0, header_height 
             + secs[0].offsetHeight
             + secs[1].offsetHeight
             + secs[2].offsetHeight);
+    }
+    else if (str == 'contact'){
+        window.scrollTo(0, header_height 
+            + secs[0].offsetHeight
+            + secs[1].offsetHeight
+            + secs[2].offsetHeight
+            + secs[3].offsetHeight);
     }
     else if (str == 'bcontact'){
         window.scrollTo(0, header_height 

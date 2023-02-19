@@ -357,7 +357,6 @@ padding: 6px 8px 6px 8px;
     .sidenav{
         height: 100px;
         width: 100%;
-        padding-bottom: 30px;
     }
 
     #prev{
@@ -367,6 +366,5 @@ padding: 6px 8px 6px 8px;
     .container{
         width:900px;
         padding-left: 0px;
-        margin-top: 30px;
     }
 }

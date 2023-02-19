@@ -357,6 +357,7 @@ padding: 6px 8px 6px 8px;
     .sidenav{
         height: 100px;
         width: 100%;
+        padding-bottom: 30px;
     }
 
     #prev{

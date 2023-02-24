@@ -364,6 +364,10 @@ padding: 6px 8px 6px 8px;
         left: 30px;
     }
 
+    #scroll_top{
+        display: none;
+    }
+
     .container{
         width:90%;
         padding-left: 0px;

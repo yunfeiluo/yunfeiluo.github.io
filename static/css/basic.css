@@ -119,6 +119,13 @@ a{text-decoration: none;}
     padding:250px 0 0 0;
 }
 
+.footer img{
+    opacity: 0.8;
+}
+.footer img:hover{
+    opacity: 1;
+}
+
 /*blogs*/
 .blogs{
     background: url("../images/bg.png");

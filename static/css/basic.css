@@ -176,6 +176,8 @@ a{text-decoration: none;}
 
 .about ul img{
     opacity: 0.7;
+    /* width: 20%; */
+    height: 30px;
 }
 .about ul img:hover{
     opacity: 1.0;
@@ -206,7 +208,7 @@ a{text-decoration: none;}
 .about ul{
     width: 70%;
     margin: auto;
-    padding: 50px 0 0 130px;
+    padding: 50px 0 0 115px;
 }
 
 .profile{    
@@ -394,5 +396,9 @@ padding: 6px 8px 6px 8px;
     .container{
         width:95%;
         padding-left: 0px;
+    }
+
+    .about ul img{
+        height: 50px;
     }
 }

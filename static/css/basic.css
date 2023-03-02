@@ -398,6 +398,11 @@ padding: 6px 8px 6px 8px;
         padding-left: 0px;
     }
 
+    .about ul{
+        width: 90%;
+        padding: 50px 0 0 10px;
+    }
+
     .about ul img{
         height: 50px;
     }

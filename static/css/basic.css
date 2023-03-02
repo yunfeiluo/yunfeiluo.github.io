@@ -174,6 +174,18 @@ a{text-decoration: none;}
     margin: auto;
 }
 
+.about li{
+    display: inline;
+}
+
+.about ul{
+    width: 450px;
+    padding: 50px 0 0 0;
+    float: center;
+    display: block; 
+    margin: auto;
+}
+
 .about ul img{
     opacity: 0.7;
     /* width: 20%; */
@@ -199,16 +211,6 @@ a{text-decoration: none;}
 }
 .about h2{
     color:rgb(1, 1, 1);
-}
-
-.about li{
-    display: inline;
-}
-
-.about ul{
-    width: 70%;
-    margin: auto;
-    padding: 50px 0 0 115px;
 }
 
 .profile{    
@@ -399,11 +401,10 @@ padding: 6px 8px 6px 8px;
     }
 
     .about ul{
-        width: 90%;
-        padding: 50px 0 0 50px;
+        width: 650px;
     }
 
     .about ul img{
-        height: 50px;
+        height: 40px;
     }
 }

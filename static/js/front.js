@@ -86,33 +86,34 @@ function scroll_down(str){
     var header_height = document.getElementsByTagName("header")[0].offsetHeight;
     var secs = document.getElementsByTagName("section");
     if (str == 'about'){
-        //TODO
         window.scrollTo(0, header_height
             + secs[0].offsetHeight);
-        //alert(header_height);
     }
     else if (str == 'profile'){
-        //TODO
         window.scrollTo(0, header_height 
             + secs[0].offsetHeight
             + secs[1].offsetHeight);
     }
-    else if (str == 'blogs'){
+    else if (str == 'news'){
         window.scrollTo(0, header_height 
             + secs[0].offsetHeight
             + secs[1].offsetHeight
             + secs[2].offsetHeight);
     }
-    else if (str == 'contact'){
+    else if (str == 'articles'){
         window.scrollTo(0, header_height 
             + secs[0].offsetHeight
             + secs[1].offsetHeight
             + secs[2].offsetHeight
             + secs[3].offsetHeight);
     }
-    else if (str == 'bcontact'){
+    else if (str == 'contact'){
         window.scrollTo(0, header_height 
-            + secs[0].offsetHeight);
+            + secs[0].offsetHeight
+            + secs[1].offsetHeight
+            + secs[2].offsetHeight
+            + secs[3].offsetHeight
+            + secs[4].offsetHeight);
     }
 }
 

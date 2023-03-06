@@ -15,6 +15,7 @@
 <script src="build/babel.min.js"></script>
 <!-- Update modules -->
 <script type="text/babel" src="update/footer.js"></script>
+<script type="text/babel" src="update/local_docs.js"></script>
 </head>
 <body>
     <header>
@@ -36,9 +37,12 @@
         <div class = "container">
             <div id="root"></div>
             <h2>Projects</h2>
-            <div class="asidenav" id="list"></div>
-
             <script type="text/babel">
+                var local_list_name = "projects";
+            </script>
+            <div class="asidenav" id="local_list"></div>
+
+            <!-- <script type="text/babel">
                 class DocList extends React.Component {
                     constructor(props){
                         super(props);
@@ -116,7 +120,7 @@
                     <DocList></DocList>,
                     document.getElementById("list")
                 );
-            </script>
+            </script> -->
 
             <br/><br/><br/><br/>
             <br/><br/><br/><br/>

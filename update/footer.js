@@ -4,6 +4,7 @@ class Footer extends React.Component {
     }
 
     make_footer(){  
+        var LastUpdated = document.lastModified;
         return (
     <footer className="footer">
         <div className="container">
@@ -42,10 +43,7 @@ class Footer extends React.Component {
             <div className="bottom">
                 &copy; 2021 Yunfei Luo. 
                 Hosted by GitHub Pages. 
-                <script language="JavaScript">
-                    var LastUpdated = document.lastModified;
-                    document.writeln ("Last Modified: " + LastUpdated);
-                </script>
+                Last Modified: {LastUpdated}.
             </div>
         </div>
     </footer>

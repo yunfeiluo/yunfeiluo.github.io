@@ -1,10 +1,12 @@
-class Contact extends React.Component {
+class Footer extends React.Component {
     constructor(props){
         super(props);
     }
 
-    make_contact(){  
+    make_footer(){  
         return (
+    <footer className="footer">
+        <div className="container">
             <div className="top">
                 <figure>
                     <h4>Contact Info.</h4>
@@ -34,15 +36,28 @@ class Contact extends React.Component {
                 </figure>
                 <div className="clearfix"></div>
             </div>
+        </div>
+    
+        <div className="container">
+            <div className="bottom">
+                &copy; 2021 Yunfei Luo. 
+                Hosted by GitHub Pages. 
+                <script language="JavaScript">
+                    var LastUpdated = document.lastModified;
+                    document.writeln ("Last Modified: " + LastUpdated);
+                </script>
+            </div>
+        </div>
+    </footer>
         );
     }
 
     // rendor funcion
     render () {
-        return this.make_contact();
+        return this.make_footer();
     }
 }
 ReactDOM.render(
-    <Contact></Contact>,
-    document.getElementById("contact_info")
+    <Footer></Footer>,
+    document.getElementById("footer")
 );

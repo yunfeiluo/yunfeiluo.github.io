@@ -25,5 +25,5 @@ class News extends React.Component {
 }
 ReactDOM.render(
     <News></News>,
-    document.getElementById("news")
+    document.getElementById("news_list")
 );

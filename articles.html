@@ -111,7 +111,7 @@
                             let curr_link = "https://github.com/yunfeiluo/yunfeiluo.github.io/blob/master/articles/" + item;
                             let display_name = item.split('/').pop().split('.')[0]
                             list.push(
-                                <div id = {item}>
+                                <div id = {item} key = {item}>
                                     <a href={curr_link} target="_blank">
                                         {display_name}
                                     </a>

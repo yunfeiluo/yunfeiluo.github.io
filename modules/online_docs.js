@@ -7,7 +7,7 @@ class OnlineDocList extends React.Component {
 
         for (let item in online_list){
             let curr_link = online_list[item];
-            let display_name = item;
+            let display_name = item.slice(14);
             list.push(
                 <div id = {item} key = {item}>
                     <a href={curr_link} target="_blank">

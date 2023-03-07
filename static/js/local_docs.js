@@ -6,7 +6,8 @@ class LocalDocList extends React.Component {
     }
 
     fetch_local_list(){
-        let url = 'https://api.github.com/repos/yunfeiluo/yunfeiluo.github.io/git/trees/master';
+        // let url = 'https://api.github.com/repos/yunfeiluo/yunfeiluo.github.io/git/trees/master';
+        let url = 'https://api.github.com/repos/yunfeiluo/yunfeiluo.github.io/git/trees/8354ef9f4a551d9d55d66dac6f272a7bf3aaced5';
         
         let fetch_list = [];
         // fetch 1st level

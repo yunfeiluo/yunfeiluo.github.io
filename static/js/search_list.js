@@ -72,7 +72,7 @@ class DocListSearch extends React.Component {
                 let curr_link = "";
                 let display_name = "";
                 if (item.slice(0, 13) != "[publication]"){
-                    curr_link = "https://github.com/yunfeiluo/yunfeiluo.github.io/blob/master/articles/" + item;
+                    curr_link = "https://github.com/yunfeiluo/yunfeiluo.github.io/blob/master/update/articles/" + item;
                     display_name = item.split('/').pop().split('.')[0];
                 }
                 else{

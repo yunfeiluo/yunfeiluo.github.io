@@ -5,3 +5,5 @@ to fresh the indexing files
 upload the stored files onto AWS lambda (Ohio)
 
 local_search_engine.py is for local testing (it's a Flask app)
+
+Also for local test: python3 -m http.server 80

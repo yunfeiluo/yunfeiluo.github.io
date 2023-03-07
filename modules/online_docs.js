@@ -1,13 +1,7 @@
-var online_list = {
-    // "name of article": "link to article",
-    "Test article. More content will be updated soon!": "error.html"
-};
-
 class OnlineDocList extends React.Component {
     constructor(props){
         super(props);
     }
-// <li>[date] content.</li>
     make_online_list(){  
         let list = [];
 

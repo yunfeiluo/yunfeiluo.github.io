@@ -69,8 +69,16 @@ class DocListSearch extends React.Component {
         // document list
         if (this.items != null){
             for (let item of this.items) {
-                let curr_link = "https://github.com/yunfeiluo/yunfeiluo.github.io/blob/master/articles/" + item;
-                let display_name = item.split('/').pop().split('.')[0]
+                let curr_link = "";
+                let display_name = "";
+                if (item.slice(0, 13) != "[publication]"){
+                    curr_link = "https://github.com/yunfeiluo/yunfeiluo.github.io/blob/master/articles/" + item;
+                    display_name = item.split('/').pop().split('.')[0];
+                }
+                else{
+                    display_name = item.slice(13).split('.')[0];
+                    curr_link = online_list[display_name];
+                }
                 list.push(
                     <div id = {item} key = {item}>
                         <a href={curr_link} target="_blank">

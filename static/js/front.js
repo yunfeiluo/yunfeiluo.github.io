@@ -97,7 +97,7 @@ function scroll_down(str){
             + secs[1].offsetHeight
             + secs[2].offsetHeight);
     }
-    else if (str == 'articles'){
+    else if (str == 'archives'){
         window.scrollTo(0, header_height 
             + secs[0].offsetHeight
             + secs[1].offsetHeight

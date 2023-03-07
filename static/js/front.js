@@ -15,28 +15,28 @@ window.onload =function(){
     //     return false;
     // };
     // block some shortcut keys
-    document.onkeydown = function (){
-        var e = window.event || arguments[0];
-        // //F12
-        // if(e.keyCode == 123){
-        //     return false;
-        // }
-        //Ctrl+Shift+I
-        if((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)){
-            return false;
-        }
-        //Shift+F10
-        else if((e.shiftKey) && (e.keyCode == 121)){
-            return false;
-        }
-        //Ctrl+U
-        else if((e.ctrlKey) && (e.keyCode == 85)){
-            return false;
-        }
-        else if((e.ctrlKey) && (e.keyCode == 83)){
-            return false;
-        }
-    };
+    // document.onkeydown = function (){
+    //     var e = window.event || arguments[0];
+    //     // //F12
+    //     // if(e.keyCode == 123){
+    //     //     return false;
+    //     // }
+    //     //Ctrl+Shift+I
+    //     if((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)){
+    //         return false;
+    //     }
+    //     //Shift+F10
+    //     else if((e.shiftKey) && (e.keyCode == 121)){
+    //         return false;
+    //     }
+    //     //Ctrl+U
+    //     else if((e.ctrlKey) && (e.keyCode == 85)){
+    //         return false;
+    //     }
+    //     else if((e.ctrlKey) && (e.keyCode == 83)){
+    //         return false;
+    //     }
+    // };
 };
 
 //scroll lisener (mainly for scroll-top)
@@ -52,15 +52,14 @@ window.onscroll=function(){
 
 //global variables
 var imgs = [
-"url(static/images/slide0.jpg)", 
-"url(static/images/slide1.jpg)", 
-"url(static/images/slide2.jpg)"
+"url(static/images/photos/slide0.jpg)", 
+"url(static/images/photos/slide1.jpg)", 
+"url(static/images/photos/slide2.jpg)"
 ];
 var index = 0;
 
 //function for slides
 function prev(){
-    //TODO
     var hbg = document.getElementById('headerBGI');
     index -= 1;
     if (index < 0){
@@ -70,7 +69,6 @@ function prev(){
 }
 
 function next(){
-    //TODO
     var hbg = document.getElementById('headerBGI');
     index += 1;
     if (index > (imgs.length - 1)){
@@ -82,7 +80,6 @@ function next(){
 
 //function for smooth scrolling
 function scroll_down(str){
-    //TODO
     var header_height = document.getElementsByTagName("header")[0].offsetHeight;
     var secs = document.getElementsByTagName("section");
     if (str == 'about'){
@@ -127,7 +124,6 @@ function scroll_top(){
 //opacity action
 var button;
 function opa_up(b0){
-    //TODO
     if (b0 == 'p'){
         button = document.getElementsByTagName("button");
         button[0].style.opacity = 1;
@@ -143,7 +139,6 @@ function opa_up(b0){
 }
 
 function opa_down(b1){
-    //TODO
     if (b1 == 'p'){
         button[0].style.opacity = 0.4;
     }

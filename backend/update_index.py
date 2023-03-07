@@ -20,10 +20,10 @@ def dfs(root, text):
             dfs("{}/{}".format(root, subdir), text)
 
 def fetch_pub_txt(text):
-    for f_ in os.listdir("publications_txt"):
+    for f_ in os.listdir("../update/publications_txt"):
         real_ind = "[publication] {}".format(f_)
         text[real_ind] = list()
-        txt_path = os.path.join("publications_txt", f_)
+        txt_path = os.path.join("../update/publications_txt", f_)
 
         with open(txt_path, 'r', encoding='utf-8') as f:
             line = f.readline()

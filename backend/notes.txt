@@ -4,7 +4,7 @@ to fresh the indexing files
 
 upload the stored files (doc_ind.json, indexing_.json) onto AWS lambda (Ohio). (Copy and Paste). 
 
-publications_txt/ txt filename should match the key in update/publications.js
+update/publications_txt/ txt filename should match the key in update/publications.js
 
 local_search_engine.py is for local testing (it's a Flask app)
 Also for local test: python3 -m http.server 80

@@ -4,9 +4,9 @@ import search_engine_lib.preprocess_and_indexing as pre_ind
 
 def dfs(root, text):
     if os.path.isfile(root):
-        real_ind = root[12:]
+        real_ind = root[19:]
         if len(real_ind.split('.')[0]) > 0:
-            txt_path = "../articles_txt/{}.txt".format(real_ind.split('.')[0])
+            txt_path = "../update/articles_txt/{}.txt".format(real_ind.split('.')[0])
             text[real_ind] = list()
             
             with open(txt_path, 'r', encoding='utf-8') as f:
@@ -35,7 +35,7 @@ def fetch_pub_txt(text):
 if __name__ == '__main__':
     # fetch the texts of all the document
     print("Fetching files...")
-    root = "../articles"
+    root = "../update/articles"
     text = dict() # map: doc_path -> lines of text
     dfs(root, text)
     fetch_pub_txt(text)
@@ -54,5 +54,5 @@ if __name__ == '__main__':
     
     print("Index Fresh Complete.")
 
-    # for i in process_obj.doc_ind:
-    #     print(i, process_obj.doc_ind[i])
+    for i in process_obj.doc_ind:
+        print(i, process_obj.doc_ind[i])

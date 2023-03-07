@@ -51,7 +51,7 @@ class LocalDocList extends React.Component {
     display_docs(){
         const list = [];
         for (let item of this.state.list) {
-            let curr_link = "https://github.com/yunfeiluo/yunfeiluo.github.io/blob/master/articles/" + local_list_name + "/" + item;
+            let curr_link = "https://github.com/yunfeiluo/yunfeiluo.github.io/blob/master/update/articles/" + local_list_name + "/" + item;
             list.push(
                 <div id = {item} key = {item}>
                     <a href={curr_link} target="_blank">

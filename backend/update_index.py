@@ -21,7 +21,7 @@ def dfs(root, text):
 
 def fetch_pub_txt(text):
     for f_ in os.listdir("publications_txt"):
-        real_ind = f_
+        real_ind = "[publication] {}".format(f_)
         text[real_ind] = list()
         txt_path = os.path.join("publications_txt", f_)
 
@@ -52,5 +52,7 @@ if __name__ == '__main__':
     with open('search_engine_lib/stored/doc_ind.json', 'w') as f:
         json.dump(process_obj.doc_ind, f)
     
+    print("Index Fresh Complete.")
+
     # for i in process_obj.doc_ind:
     #     print(i, process_obj.doc_ind[i])

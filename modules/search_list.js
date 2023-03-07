@@ -76,8 +76,9 @@ class DocListSearch extends React.Component {
                     display_name = item.split('/').pop().split('.')[0];
                 }
                 else{
-                    display_name = item.slice(13).split('.')[0];
+                    display_name = item.split('.')[0];
                     curr_link = online_list[display_name];
+                    display_name = display_name.slice(13)
                 }
                 list.push(
                     <div id = {item} key = {item}>

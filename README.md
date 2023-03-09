@@ -10,5 +10,5 @@ https://github.com/yunfeiluo/yunfeiluo.github.io/blob/master/update/articles/pro
 
 ---
 ### References
-Academic icons from: [Font Awesome](https://github.com/FortAwesome/Font-Awesome)
-Square Badges icons from: [Markdonw Badges](https://github.com/Ileriayo/markdown-badges)
+- Academic icons from: [Font Awesome](https://github.com/FortAwesome/Font-Awesome)
+- Square Badges icons from: [Markdonw Badges](https://github.com/Ileriayo/markdown-badges)

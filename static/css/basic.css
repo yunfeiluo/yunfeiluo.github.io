@@ -181,7 +181,7 @@ a{text-decoration: none;}
 
 .about ul{
     width: 450px;
-    padding: 50px 0 0 0;
+    padding: 50px 0 0 130px;
     float: center;
     display: block; 
     margin: auto;
@@ -193,6 +193,15 @@ a{text-decoration: none;}
     height: 30px;
 }
 .about ul img:hover{
+    opacity: 1.0;
+}
+
+.about ul i{
+    opacity: 0.7;
+    height: 30px;
+    color: #111;
+}
+.about ul i:hover{
     opacity: 1.0;
 }
 
@@ -434,6 +443,7 @@ padding: 6px 8px 6px 8px;
 
     .about ul{
         width: 650px;
+        padding: 50px 0 0 230px;
     }
 
     .about ul img{

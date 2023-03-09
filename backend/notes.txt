@@ -8,3 +8,6 @@ update/publications_txt/ txt filename should match the key in update/publication
 
 local_search_engine.py is for local testing (it's a Flask app)
 Also for local test: python3 -m http.server 80
+
+Academic icon from: https://jpswalsh.github.io/academicons/
+Square icon from: https://github.com/Ileriayo/markdown-badges

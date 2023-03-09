@@ -42,6 +42,7 @@ class Footer extends React.Component {
         <div className="container">
             <div className="bottom">
                 &copy; 2021 Yunfei Luo. 
+                Original Designing and Coding by <a href="https://github.com/yunfeiluo" target="_blank">Yunfei Luo</a>.
                 Hosted by GitHub Pages. 
                 Last Modified: {LastUpdated}.
             </div>

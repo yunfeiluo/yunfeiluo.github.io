@@ -181,7 +181,7 @@ a{text-decoration: none;}
 
 .about ul{
     width: 450px;
-    padding: 50px 0 0 120px;
+    padding: 50px 0 0 90px;
     float: center;
     display: block; 
     margin: auto;
@@ -216,6 +216,7 @@ a{text-decoration: none;}
     float: right;
     line-height: 35px;
     padding:0 0 10px 0;
+    font-size: x-large;
 }
 .about h1{
     color:#d4d3d3;
@@ -282,7 +283,7 @@ a{text-decoration: none;}
     margin-bottom: 20px;
     margin-left: 160px;   
     margin-right: 80px; 
-    font-size: larger;
+    font-size: x-large;
 }
 
 /*slide*/
@@ -444,7 +445,7 @@ padding: 6px 8px 6px 8px;
 
     .about ul{
         width: 650px;
-        padding: 50px 0 0 210px;
+        padding: 50px 0 0 190px;
     }
 
     .about ul img{

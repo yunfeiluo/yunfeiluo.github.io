@@ -12,10 +12,10 @@ class Footer extends React.Component {
                 <figure>
                     <h4>Contact Info.</h4>
                     <ul>
-                        <li><a href = "mailto: yunfeiluo@umass.edu"><i className="fa-solid fa-envelope"></i> yunfeiluo@umass.edu</a></li>
+                        <li><a href = "mailto: yunfeiluo@umass.edu"><i className="fa-solid fa-envelope"></i> yul268@ucsd.edu</a></li>
                         <li><p><i className="fa-solid fa-phone"></i> 413. 404. 2124</p></li>
                         <li><p>.</p></li>
-                        <li><p><i className="fa-solid fa-location-dot"></i> Amherst, MA, United States</p></li>
+                        <li><p><i className="fa-solid fa-location-dot"></i> San Diego, CA, United States</p></li>
                     </ul>
                 </figure>
                 <figure>

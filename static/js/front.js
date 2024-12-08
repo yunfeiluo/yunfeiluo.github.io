@@ -91,26 +91,26 @@ function scroll_down(str){
             + secs[0].offsetHeight
             + secs[1].offsetHeight);
     }
-    else if (str == 'news'){
-        window.scrollTo(0, header_height 
-            + secs[0].offsetHeight
-            + secs[1].offsetHeight
-            + secs[2].offsetHeight);
-    }
+    // else if (str == 'news'){
+    //     window.scrollTo(0, header_height 
+    //         + secs[0].offsetHeight
+    //         + secs[1].offsetHeight
+    //         + secs[2].offsetHeight);
+    // }
     else if (str == 'archives'){
         window.scrollTo(0, header_height 
             + secs[0].offsetHeight
             + secs[1].offsetHeight
-            + secs[2].offsetHeight
-            + secs[3].offsetHeight);
+            + secs[2].offsetHeight);
+            // + secs[3].offsetHeight);
     }
     else if (str == 'contact'){
         window.scrollTo(0, header_height 
             + secs[0].offsetHeight
             + secs[1].offsetHeight
             + secs[2].offsetHeight
-            + secs[3].offsetHeight
-            + secs[4].offsetHeight);
+            + secs[3].offsetHeight);
+            // + secs[4].offsetHeight);
     }
 }
 

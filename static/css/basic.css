@@ -452,3 +452,73 @@ padding: 6px 8px 6px 8px;
         height: 40px;
     }
 }
+
+/* ===========================================================================================================================  */
+
+/* Row for each publication */
+.publication-list .publication-row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+/* Image styling */
+.publication-list .publication-image img {
+    width: 240px;
+    height: 150px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* Content styling */
+.publication-list .publication-content {
+    flex-grow: 1;
+}
+
+/* Title styling */
+.publication-list .publication-title {
+    font-size: 1.2em;
+    margin: 0; /* Remove extra margin */
+    line-height: 1.4; /* Adjust line spacing */
+}
+
+/* Author list styling */
+.publication-list .publication-content p {
+    font-family: Arial;
+    font-size: 18px;
+    margin: 0px 0px -70px 0px; /* Reduce spacing between paragraphs */
+    line-height: 1.4; /* Adjust line spacing for readability */
+}
+
+/* Venue styling */
+.publication-list .publication-venue {
+    font-style: italic;
+    margin: 5px 0; /* Keep consistent spacing */
+}
+
+/* Links container */
+.publication-list .publication-links {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+/* Button styling for links */
+.publication-list .publication-links a {
+    text-decoration: none;
+    color: rgb(83, 78, 78);
+    background-color: #e2ebf3;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.publication-list .publication-links a:hover {
+    background-color: #7492b0;
+}

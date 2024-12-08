@@ -18,6 +18,8 @@
 <script type="text/babel" src="update/bio.js"></script>
 <script type="text/babel" src="update/news.js"></script>
 <script type="text/babel" src="update/footer.js"></script>
+<script type="text/babel" src="update/publications.js"></script>
+<script type="text/babel" src="static/js/online_docs.js"></script>
 </head>
 <body>
     <header>
@@ -29,10 +31,10 @@
                 <a>About</a></li>
             <li style="cursor:pointer" onclick = "scroll_down('profile')">
                 <a>Profile</a></li>
-            <li style="cursor:pointer" onclick = "scroll_down('news')">
-                <a>News</a></li>
+            <!-- <li style="cursor:pointer" onclick = "scroll_down('news')">
+                <a>News</a></li> -->
             <li style="cursor:pointer" onclick = "scroll_down('archives')">
-                <a>Archives</a></li>
+                <a>Publications</a></li>
             <li style="cursor:pointer" onclick = "scroll_down('contact')">
                 <a>Contact</a></li>
             </ul>
@@ -102,20 +104,33 @@
         </div>
     </section>
 
-    <section class = "news">
+    <!-- <section class = "news">
         <div class="container">
             <h2 id="news">News</h2>
             <div id="news_list"></div>
         </div>
-    </section>
+    </section> -->
 
     <!-- section 2 -->
     <section class = "blogs">
         <div class = "container">
+            <div id="root"></div>
+            <!-- <h2>Publications</h2> -->
+            <a href="publications.html">
+                <h2>Publications</h2>
+            </a>
+            <div class="publication-list" id="online_list"></div>
+            <br/>
+        </div>
+    </section>
+
+    <!-- section 3 -->
+    <!-- <section class = "blogs">
+        <div class = "container">
             <h2>Archives</h2>
             <div>
                 <a href="archives.html">
-                    <h1><u>Search over My Publications, Blogs, and Project Reports</u></h1></a>
+                    <h1><u>Search over My Archived Blogs and Project Reports</u></h1></a>
             </div>
             <div class="asidenav">
                 <h2>Categories</h2>
@@ -134,7 +149,7 @@
             </div>
             <br/><br/><br/><br/>
         </div>
-    </section>
+    </section> -->
 
     <!-- The end: footer -->
     <div id="footer"></div>

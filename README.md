@@ -2,6 +2,17 @@
 
 Codes and Theme Design are Original. 
 
+## Updates guide
+To update the information, change one of the files or folders in `update`. The `static` contain all the files for modifying the look of the website.
+
+Test changes with (recommended to first clear the cache of browsers):
+```
+python -m http.server
+```
+
+---
+
+### Related information
 Personal Website
 [Link](https://yunfeiluo.github.io)  
 

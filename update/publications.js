@@ -1,5 +1,13 @@
 // slide, video, etc.
 var publication_list = {
+    'idhposter2024': {
+        'title': "Real-Time Forecasting of Intradialytic Hypotension Using Deep Learning and Multimodal Data Integration: SA-PO405",
+        'authors': "<b>Yunfei Luo</b>, Siwei Zhao, Subhasis Dasgupta, Tauhidur Rahman, Rakesh Malhotra",
+        'venue': "Journal of the American Society of Nephrology",
+        'paper_pdf': "https://journals.lww.com/jasn/fulltext/2024/10001/real_time_forecasting_of_intradialytic_hypotension.3150.aspx",
+        "poster": "https://docs.google.com/presentation/d/15KpczsFswoq7wc4MdqF-suXRKCTqQz-G/edit?usp=sharing&ouid=109208499330994003068&rtpof=true&sd=true",
+        "image": "/update/paper_imgs/idhposter2024.png"
+    },
     'studentstress2024': {
         'title': "Dynamic clustering via branched deep learning enhances personalization of stress prediction from mobile sensor data",
         'authors': "<b>Yunfei Luo</b>,  Iman Deznabi, Abhinav Shaw, Natcha Simsiri, Tauhidur Rahman, Madalina Fiterau",

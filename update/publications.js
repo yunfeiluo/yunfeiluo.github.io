@@ -1,5 +1,13 @@
 // slide, video, etc.
 var publication_list = {
+    'normwear2024': {
+        'title': "Toward Foundation Model for Multivariate Wearable Sensing of Physiological Signals",
+        'authors': "<b>Yunfei Luo</b>, Yuliang Chen, Asif Salekin, Tauhidur Rahman",
+        'venue': "arXiv preprint arXiv:2412.09758",
+        'paper_pdf': "https://arxiv.org/abs/2412.09758",
+        "code": "https://github.com/Mobile-Sensing-and-UbiComp-Laboratory/NormWear",
+        "image": "/update/paper_imgs/normwear2024.png"
+    },
     'idhposter2024': {
         'title': "Real-Time Forecasting of Intradialytic Hypotension Using Deep Learning and Multimodal Data Integration: SA-PO405",
         'authors': "<b>Yunfei Luo</b>, Siwei Zhao, Subhasis Dasgupta, Tauhidur Rahman, Rakesh Malhotra",

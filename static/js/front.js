@@ -54,7 +54,8 @@ window.onscroll=function(){
 var imgs = [
 "url(update/photos/slide0.jpg)", 
 "url(update/photos/slide1.jpg)", 
-"url(update/photos/slide2.jpg)"
+"url(update/photos/slide2.jpg)",
+"url(update/photos/slide3.jpg)"
 ];
 var index = 0;
 

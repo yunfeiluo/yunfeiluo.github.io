@@ -2,7 +2,7 @@
 var publication_list = {
     'luo2026personalized': {
         'title': "Personalized entropy-informed deep learning for identifying opioid misuse",
-        'authors': "<b>Yunfei Luo<b>, Iman Deznabi, Bhanu Teja Gullapalli, Mark Tuomenoksa, Madalina Brostean Fiterau, Eric L Garland, and Tauhidur Rahman",
+        'authors': "<b>Yunfei Luo</b>, Iman Deznabi, Bhanu Teja Gullapalli, Mark Tuomenoksa, Madalina Brostean Fiterau, Eric L Garland, and Tauhidur Rahman",
         'venue': "Nature Mental Health, 2026",
         'paper_pdf': "https://www.nature.com/articles/s44220-025-00555-8",
         "image": "/update/paper_imgs/luo2026personalized.png"

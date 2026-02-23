@@ -2,7 +2,7 @@ run
 python -m update_index
 to fresh the indexing files
 
-upload the stored files (doc_ind.json, indexing_.json) onto AWS lambda (Ohio). (Copy and Paste). 
+upload the stored files (doc_ind.json, indexing_.json) onto AWS lambda (Ohio), it was registered using qq email. (Copy and Paste). 
 
 update/publications_txt/ txt filename should match the key in update/publications.js
 

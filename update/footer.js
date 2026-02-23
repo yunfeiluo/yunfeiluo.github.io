@@ -13,17 +13,18 @@ class Footer extends React.Component {
                     <h4>Contact Info.</h4>
                     <ul>
                         <li><a href = "mailto: yul268@ucsd.edu"><i className="fa-solid fa-envelope"></i> yul268@ucsd.edu</a></li>
-                        {/* <li><p><i className="fa-solid fa-phone"></i> 413. 404. 2124</p></li> 
+                        {/* <li><p><i className="fa-solid fa-phone"></i> - </p></li> 
                         <li><p>.</p></li> */}
                         <li><p><i className="fa-solid fa-location-dot"></i> San Diego, CA, United States</p></li>
                     </ul>
                 </figure>
                 <figure>
                     <h4>Social Media</h4>
-                    <ul>
+                    <ul>   
+                        <li><a href="https://www.linkedin.com/in/yunfei-luo/" target="_blank">
+                        <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
+                        </a></li>
                         <li><a href="https://x.com/yunfei_luo" target="_blank">
-                        {/* <img src="https://img.shields.io/badge/Twitter-blue?style=for-the-badge&logo=twitter&logoColor=white" alt="Twitter Badge"/>
-                         */}
                          <img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" alt="X Badge"/>
                         </a></li>
                         {/* <li><a href="https://www.facebook.com/yunfei.luo.77" target="_blank">

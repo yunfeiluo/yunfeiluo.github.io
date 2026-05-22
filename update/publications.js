@@ -1,19 +1,19 @@
 // slide, video, etc.
 var publication_list = {
+    'normwear2024': {
+        'title': "Toward Foundation Model for Multivariate Wearable Sensing of Physiological Signals",
+        'authors': "<b>Yunfei Luo</b>, Yuliang Chen, Asif Salekin, Tauhidur Rahman",
+        'venue': "ACM Transactions on Computing for Healthcare (HEALTH, 2026)",
+        'paper_pdf': "https://dl.acm.org/doi/full/10.1145/3803808",
+        "code": "https://github.com/Mobile-Sensing-and-UbiComp-Laboratory/NormWear",
+        "image": "/update/paper_imgs/normwear2024.png"
+    },
     'luo2026personalized': {
         'title': "Personalized entropy-informed deep learning for identifying opioid misuse",
         'authors': "<b>Yunfei Luo</b>, Iman Deznabi, Bhanu Teja Gullapalli, Mark Tuomenoksa, Madalina Brostean Fiterau, Eric L Garland, and Tauhidur Rahman",
         'venue': "Nature Mental Health, 2026",
         'paper_pdf': "https://www.nature.com/articles/s44220-025-00555-8",
         "image": "/update/paper_imgs/luo2026personalized.png"
-    },
-    'normwear2024': {
-        'title': "Toward Foundation Model for Multivariate Wearable Sensing of Physiological Signals",
-        'authors': "<b>Yunfei Luo</b>, Yuliang Chen, Asif Salekin, Tauhidur Rahman",
-        'venue': "arXiv preprint arXiv:2412.09758",
-        'paper_pdf': "https://arxiv.org/abs/2412.09758",
-        "code": "https://github.com/Mobile-Sensing-and-UbiComp-Laboratory/NormWear",
-        "image": "/update/paper_imgs/normwear2024.png"
     },
     'idhposter2024': {
         'title': "Real-Time Forecasting of Intradialytic Hypotension Using Deep Learning and Multimodal Data Integration: SA-PO405",
